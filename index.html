@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Africa Digital Skills & Professional Development Academy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:{DEFAULT:'#0A2647',light:'#144272',lighter:'#205295',dark:'#061830'},gold:{DEFAULT:'#D4A843',light:'#E8C872',dark:'#B8912E'},accent:{DEFAULT:'#2E7D32',light:'#4CAF50'}},fontFamily:{poppins:['Poppins','sans-serif'],inter:['Inter','sans-serif']}}}}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--primary:#0A2647;--primary-light:#144272;--primary-lighter:#205295;--gold:#D4A843;--gold-light:#E8C872;--accent:#2E7D32;--accent-light:#4CAF50;--bg:#F8F9FA;--card:#FFFFFF;--text:#1A1A2E;--text-muted:#6B7280;--border:#E5E7EB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif}
+.page-transition{animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float1{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(30px,-40px) rotate(180deg)}}
+@keyframes float2{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-40px,30px) rotate(-180deg)}}
+@keyframes float3{0%,100%{transform:translate(0,0) rotate(45deg)}50%{transform:translate(20px,30px) rotate(225deg)}}
+@keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 rgba(212,168,67,.4)}70%{box-shadow:0 0 0 15px rgba(212,168,67,0)}}
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes progressBar{from{width:0}}
+.hero-shape{position:absolute;border-radius:50%;opacity:.08;background:var(--gold)}
+.hero-shape-1{width:300px;height:300px;top:-50px;right:-80px;animation:float1 8s ease-in-out infinite}
+.hero-shape-2{width:200px;height:200px;bottom:-30px;left:-60px;animation:float2 10s ease-in-out infinite}
+.hero-shape-3{width:150px;height:150px;top:40%;left:30%;animation:float3 12s ease-in-out infinite}
+.hero-shape-4{width:100px;height:100px;bottom:20%;right:20%;animation:float1 9s ease-in-out infinite reverse;border-radius:20%}
+.stat-card{animation:countUp .6s ease backwards}
+.stat-card:nth-child(1){animation-delay:.1s}
+.stat-card:nth-child(2){animation-delay:.2s}
+.stat-card:nth-child(3){animation-delay:.3s}
+.stat-card:nth-child(4){animation-delay:.4s}
+.course-card{transition:all .3s ease}
+.course-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(10,38,71,.12)}
+.btn-primary{background:var(--primary);color:#fff;padding:12px 28px;border-radius:8px;font-weight:600;border:none;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif}
+.btn-primary:hover{background:var(--primary-light);transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:#fff;padding:12px 28px;border-radius:8px;font-weight:600;border:none;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--primary);padding:12px 28px;border-radius:8px;font-weight:600;border:2px solid var(--primary);cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif}
+.btn-outline:hover{background:var(--primary);color:#fff}
+.btn-sm{padding:8px 18px;font-size:.875rem}
+.badge-free{background:#E8F5E9;color:#2E7D32;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600}
+.badge-paid{background:#FFF3E0;color:#E65100;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:600}
+.input-field{width:100%;padding:12px 16px;border:2px solid var(--border);border-radius:8px;font-size:.95rem;transition:border .3s;font-family:'Inter',sans-serif;background:#fff}
+.input-field:focus{outline:none;border-color:var(--primary)}
+.sidebar-link{display:flex;align-items:center;gap:12px;padding:12px 20px;border-radius:8px;cursor:pointer;transition:all .2s;color:#CBD5E1;font-weight:500}
+.sidebar-link:hover,.sidebar-link.active{background:rgba(212,168,67,.15);color:var(--gold)}
+.sidebar-link.active{border-left:3px solid var(--gold)}
+.toast{position:fixed;top:20px;right:20px;padding:16px 24px;border-radius:10px;color:#fff;font-weight:500;z-index:9999;animation:slideIn .3s ease;max-width:400px;display:flex;align-items:center;gap:10px}
+.toast-success{background:var(--accent)}
+.toast-error{background:#DC2626}
+.toast-info{background:var(--primary)}
+.progress-ring{transform:rotate(-90deg)}
+.lesson-item{transition:all .2s}
+.lesson-item:hover{background:rgba(10,38,71,.05)}
+.lesson-item.completed{border-left:3px solid var(--accent)}
+.exam-option{transition:all .2s;cursor:pointer;border:2px solid var(--border);padding:14px 18px;border-radius:10px;display:flex;align-items:center;gap:12px}
+.exam-option:hover{border-color:var(--primary-light);background:rgba(10,38,71,.03)}
+.exam-option.selected{border-color:var(--primary);background:rgba(10,38,71,.06)}
+.certificate-bg{background:linear-gradient(135deg,#FFFEF7 0%,#FFF8E7 50%,#FFFEF7 100%);border:3px solid var(--gold);position:relative}
+.certificate-bg::before{content:'';position:absolute;top:8px;left:8px;right:8px;bottom:8px;border:1px solid var(--gold);border-radius:4px;pointer-events:none}
+.admin-stat{border-radius:12px;padding:24px;color:#fff;position:relative;overflow:hidden}
+.admin-stat::after{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.1)}
+.nav-link{position:relative;transition:color .2s}
+.nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:width .3s}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#f1f1f1}
+::-webkit-scrollbar-thumb{background:var(--primary-light);border-radius:3px}
+@media(max-width:768px){.hero-shape{display:none}.admin-sidebar{transform:translateX(-100%);position:fixed;z-index:50}.admin-sidebar.open{transform:translateX(0)}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast-container"></div>
+
+<script>
+// ==================== DATABASE ====================
+const DEFAULT_DB = {
+  users: [
+    {id:1,username:'student01',full_name:'Abel Tesfaye',email:'abel@test.com',phone:'0911223344',password_hash:'password123',profile_image:'https://picsum.photos/seed/student-abel/200/200',role:'student',status:true,created_at:'2025-01-15'},
+    {id:2,username:'student02',full_name:'Hana Girma',email:'hana@test.com',phone:'0922334455',password_hash:'password123',profile_image:'https://picsum.photos/seed/student-hana/200/200',role:'student',status:true,created_at:'2025-02-10'},
+    {id:3,username:'instructor01',full_name:'Alemayehu Bekele',email:'alemayehu@academy.com',phone:'0933445566',password_hash:'password123',profile_image:'https://picsum.photos/seed/instructor1/200/200',role:'instructor',status:true,created_at:'2024-06-01'},
+    {id:4,username:'instructor02',full_name:'Tigist Hailu',email:'tigist@academy.com',phone:'0944556677',password_hash:'password123',profile_image:'https://picsum.photos/seed/instructor2/200/200',role:'instructor',status:true,created_at:'2024-08-15'},
+    {id:5,username:'instructor03',full_name:'Dawit Amare',email:'dawit@academy.com',phone:'0955667788',password_hash:'password123',profile_image:'https://picsum.photos/seed/instructor3/200/200',role:'instructor',status:true,created_at:'2024-09-01'},
+    {id:6,username:'instructor04',full_name:'Sara Kebede',email:'sara@academy.com',phone:'0966778899',password_hash:'password123',profile_image:'https://picsum.photos/seed/instructor4/200/200',role:'instructor',status:true,created_at:'2025-01-10'},
+    {id:7,username:'admin01',full_name:'Admin User',email:'admin@academy.com',phone:'0977889900',password_hash:'admin123',profile_image:'https://picsum.photos/seed/admin-user/200/200',role:'admin',status:true,created_at:'2024-01-01'},
+    {id:8,username:'superadmin',full_name:'Super Admin',email:'super@academy.com',phone:'0988990011',password_hash:'super123',profile_image:'https://picsum.photos/seed/super-admin/200/200',role:'superadmin',status:true,created_at:'2024-01-01'}
+  ],
+  student_profiles: [
+    {id:1,user_id:1,student_id:'ADS-2025-0001',education_level:'Bachelor',location:'Hawassa',registration_date:'2025-01-15'},
+    {id:2,user_id:2,student_id:'ADS-2025-0002',education_level:'High School',location:'Addis Ababa',registration_date:'2025-02-10'}
+  ],
+  instructor_profiles: [
+    {id:1,user_id:3,biography:'Senior IT instructor with 10+ years of experience in computer science education and training.',expertise:'Computer Skills, Microsoft Office, IT Fundamentals',experience:'10+ years in IT training'},
+    {id:2,user_id:4,biography:'Full-stack developer and instructor passionate about teaching web technologies to Ethiopian youth.',expertise:'HTML, CSS, JavaScript, React, Node.js',experience:'7 years in web development'},
+    {id:3,user_id:5,biography:'Digital marketing specialist with experience in SEO, social media marketing, and content strategy.',expertise:'SEO, Social Media, Google Ads, Content Marketing',experience:'6 years in digital marketing'},
+    {id:4,user_id:6,biography:'Graphic designer and leadership trainer with a passion for visual communication and professional development.',expertise:'Adobe Photoshop, Illustrator, Leadership, Communication',experience:'8 years in design and training'}
+  ],
+  categories: [
+    {id:1,name:'Technology',description:'Computer skills, programming, and IT courses',image:'https://picsum.photos/seed/cat-tech/400/250'},
+    {id:2,name:'Business',description:'Marketing, entrepreneurship, and business skills',image:'https://picsum.photos/seed/cat-business/400/250'},
+    {id:3,name:'Leadership',description:'Leadership, management, and professional skills',image:'https://picsum.photos/seed/cat-leadership/400/250'}
+  ],
+  courses: [
+    {id:1,category_id:1,instructor_id:3,title:'Basic Computer Skills',description:'Learn fundamental computer operations including file management, internet browsing, email, and basic troubleshooting. Perfect for beginners starting their digital journey.',thumbnail:'https://picsum.photos/seed/computer-basics/600/400',duration:'6 Weeks',level:'Beginner',price:0,is_free:true,status:'published',created_at:'2025-01-01',objectives:'Understand basic computer operations, Manage files and folders, Browse the internet safely, Use email effectively, Perform basic troubleshooting',requirements:'No prior experience needed'},
+    {id:2,category_id:1,instructor_id:3,title:'Microsoft Office Mastery',description:'Master Microsoft Word, Excel, and PowerPoint for professional document creation, data analysis, and presentations.',thumbnail:'https://picsum.photos/seed/office-mastery/600/400',duration:'8 Weeks',level:'Beginner',price:500,is_free:false,status:'published',created_at:'2025-01-15',objectives:'Create professional documents in Word, Build spreadsheets and formulas in Excel, Design effective presentations in PowerPoint',requirements:'Basic computer skills'},
+    {id:3,category_id:1,instructor_id:4,title:'Web Development Fundamentals',description:'Build modern websites from scratch using HTML, CSS, and JavaScript. Learn responsive design and front-end development best practices.',thumbnail:'https://picsum.photos/seed/web-dev/600/400',duration:'12 Weeks',level:'Intermediate',price:1500,is_free:false,status:'published',created_at:'2025-02-01',objectives:'Build responsive websites with HTML & CSS, Add interactivity with JavaScript, Understand web development workflows, Deploy websites online',requirements:'Basic computer skills, internet access'},
+    {id:4,category_id:2,instructor_id:5,title:'Digital Marketing Essentials',description:'Learn the fundamentals of digital marketing including SEO, social media marketing, email marketing, and content strategy.',thumbnail:'https://picsum.photos/seed/digital-marketing/600/400',duration:'6 Weeks',level:'Intermediate',price:0,is_free:true,status:'published',created_at:'2025-02-15',objectives:'Understand digital marketing channels, Create social media strategies, Learn SEO fundamentals, Build content marketing plans',requirements:'Basic internet knowledge'},
+    {id:5,category_id:1,instructor_id:6,title:'Graphic Design with Photoshop',description:'Learn professional graphic design using Adobe Photoshop. Create logos, banners, social media graphics, and marketing materials.',thumbnail:'https://picsum.photos/seed/graphic-design/600/400',duration:'10 Weeks',level:'Intermediate',price:1200,is_free:false,status:'published',created_at:'2025-03-01',objectives:'Navigate Photoshop interface confidently, Design professional logos and branding, Create social media graphics, Edit and enhance photos',requirements:'Basic computer skills, access to Photoshop'},
+    {id:6,category_id:3,instructor_id:6,title:'Leadership & Professional Development',description:'Develop essential leadership skills, communication abilities, and professional competencies for career growth.',thumbnail:'https://picsum.photos/seed/leadership/600/400',duration:'4 Weeks',level:'Beginner',price:0,is_free:true,status:'published',created_at:'2025-03-15',objectives:'Develop leadership qualities, Improve communication skills, Build professional networks, Learn team management basics',requirements:'No prior experience needed'}
+  ],
+  lessons: [
+    {id:1,course_id:1,title:'Introduction to Computers',video_url:'',content:'Learn about computer components, hardware vs software, and how computers process information.',order:1},
+    {id:2,course_id:1,title:'Operating System Basics',video_url:'',content:'Understand Windows/Mac operating systems, desktop navigation, and system settings.',order:2},
+    {id:3,course_id:1,title:'File Management',video_url:'',content:'Learn to create, copy, move, and organize files and folders effectively.',order:3},
+    {id:4,course_id:1,title:'Internet & Web Browsing',video_url:'',content:'Browse the internet safely, use search engines effectively, and manage bookmarks.',order:4},
+    {id:5,course_id:1,title:'Email Communication',video_url:'',content:'Create email accounts, send and receive messages, and manage contacts.',order:5},
+    {id:6,course_id:1,title:'Basic Troubleshooting',video_url:'',content:'Learn to diagnose and fix common computer problems.',order:6},
+    {id:7,course_id:2,title:'Introduction to Microsoft Word',video_url:'',content:'Learn the Word interface, create documents, and format text.',order:1},
+    {id:8,course_id:2,title:'Advanced Word Formatting',video_url:'',content:'Master styles, headers, footers, tables, and document layout.',order:2},
+    {id:9,course_id:2,title:'Introduction to Microsoft Excel',video_url:'',content:'Understand spreadsheets, cells, formulas, and basic functions.',order:3},
+    {id:10,course_id:2,title:'Excel Charts & Data Analysis',video_url:'',content:'Create charts, pivot tables, and analyze data effectively.',order:4},
+    {id:11,course_id:2,title:'Introduction to PowerPoint',video_url:'',content:'Create presentations, add slides, and use design templates.',order:5},
+    {id:12,course_id:2,title:'Advanced PowerPoint Techniques',video_url:'',content:'Add animations, transitions, and multimedia to presentations.',order:6},
+    {id:13,course_id:2,title:'Integration & Collaboration',video_url:'',content:'Learn to integrate Office apps and collaborate on documents.',order:7},
+    {id:14,course_id:2,title:'Final Project',video_url:'',content:'Create a complete office project combining Word, Excel, and PowerPoint.',order:8},
+    {id:15,course_id:3,title:'HTML Fundamentals',video_url:'',content:'Learn HTML structure, elements, attributes, and semantic tags.',order:1},
+    {id:16,course_id:3,title:'CSS Styling Basics',video_url:'',content:'Style web pages with CSS: colors, fonts, spacing, and layouts.',order:2},
+    {id:17,course_id:3,title:'Responsive Design',video_url:'',content:'Build websites that work on all screen sizes using flexbox and grid.',order:3},
+    {id:18,course_id:3,title:'JavaScript Introduction',video_url:'',content:'Add interactivity with JavaScript: variables, functions, and events.',order:4},
+    {id:19,course_id:3,title:'DOM Manipulation',video_url:'',content:'Learn to select and modify HTML elements dynamically with JavaScript.',order:5},
+    {id:20,course_id:3,title:'Building a Complete Website',video_url:'',content:'Apply all skills to build a complete responsive website project.',order:6},
+    {id:21,course_id:4,title:'Digital Marketing Overview',video_url:'',content:'Understand the digital marketing landscape and key channels.',order:1},
+    {id:22,course_id:4,title:'Social Media Marketing',video_url:'',content:'Create effective strategies for Facebook, Instagram, Telegram, and TikTok.',order:2},
+    {id:23,course_id:4,title:'SEO Fundamentals',video_url:'',content:'Learn search engine optimization techniques for better visibility.',order:3},
+    {id:24,course_id:4,title:'Content Marketing',video_url:'',content:'Plan and create content that attracts and engages your audience.',order:4},
+    {id:25,course_id:4,title:'Email Marketing Basics',video_url:'',content:'Build email lists and create effective email campaigns.',order:5},
+    {id:26,course_id:4,title:'Digital Marketing Strategy',video_url:'',content:'Create a complete digital marketing plan for a business.',order:6},
+    {id:27,course_id:5,title:'Photoshop Interface & Tools',video_url:'',content:'Navigate Photoshop workspace, tools, panels, and layers.',order:1},
+    {id:28,course_id:5,title:'Working with Layers',video_url:'',content:'Master layers, layer masks, blending modes, and layer styles.',order:2},
+    {id:29,course_id:5,title:'Text & Typography Design',video_url:'',content:'Create professional text effects and typographic designs.',order:3},
+    {id:30,course_id:5,title:'Photo Editing & Retouching',video_url:'',content:'Edit and enhance photos using adjustment layers and retouching tools.',order:4},
+    {id:31,course_id:5,title:'Logo & Branding Design',video_url:'',content:'Design professional logos and brand identity materials.',order:5},
+    {id:32,course_id:5,title:'Social Media Graphics',video_url:'',content:'Create engaging graphics for various social media platforms.',order:6},
+    {id:33,course_id:5,title:'Print Design Basics',video_url:'',content:'Design business cards, flyers, and posters for print.',order:7},
+    {id:34,course_id:5,title:'Portfolio Project',video_url:'',content:'Create a complete design portfolio showcasing your skills.',order:8},
+    {id:35,course_id:6,title:'What is Leadership?',video_url:'',content:'Understand leadership qualities and different leadership styles.',order:1},
+    {id:36,course_id:6,title:'Communication Skills',video_url:'',content:'Develop effective verbal and written communication for professional settings.',order:2},
+    {id:37,course_id:6,title:'Team Management',video_url:'',content:'Learn to build, motivate, and manage high-performing teams.',order:3},
+    {id:38,course_id:6,title:'Problem Solving & Decision Making',video_url:'',content:'Develop critical thinking and strategic decision-making skills.',order:4},
+    {id:39,course_id:6,title:'Career Development Planning',video_url:'',content:'Create a personal career development plan for long-term growth.',order:5}
+  ],
+  exams: [
+    {id:1,course_id:1,title:'Basic Computer Skills Final Exam',duration:15,passing_score:60},
+    {id:2,course_id:2,title:'Microsoft Office Mastery Final Exam',duration:20,passing_score:60},
+    {id:3,course_id:3,title:'Web Development Final Exam',duration:25,passing_score:60},
+    {id:4,course_id:4,title:'Digital Marketing Final Exam',duration:15,passing_score:60},
+    {id:5,course_id:5,title:'Graphic Design Final Exam',duration:20,passing_score:60},
+    {id:6,course_id:6,title:'Leadership Final Exam',duration:15,passing_score:60}
+  ],
+  questions: [
+    {id:1,exam_id:1,question_text:'What is the brain of the computer called?',question_type:'mcq',options:[{text:'RAM',is_correct:false},{text:'CPU',is_correct:true},{text:'Hard Drive',is_correct:false},{text:'Monitor',is_correct:false}]},
+    {id:2,exam_id:1,question_text:'Which of the following is an output device?',question_type:'mcq',options:[{text:'Keyboard',is_correct:false},{text:'Mouse',is_correct:false},{text:'Printer',is_correct:true},{text:'Scanner',is_correct:false}]},
+    {id:3,exam_id:1,question_text:'What does URL stand for?',question_type:'mcq',options:[{text:'Universal Resource Locator',is_correct:false},{text:'Uniform Resource Locator',is_correct:true},{text:'Unified Resource Language',is_correct:false},{text:'Universal Reference Link',is_correct:false}]},
+    {id:4,exam_id:1,question_text:'Which file extension represents a Word document?',question_type:'mcq',options:[{text:'.pdf',is_correct:false},{text:'.jpg',is_correct:false},{text:'.docx',is_correct:true},{text:'.mp3',is_correct:false}]},
+    {id:5,exam_id:1,question_text:'What is the purpose of an operating system?',question_type:'mcq',options:[{text:'To play games only',is_correct:false},{text:'To manage hardware and software resources',is_correct:true},{text:'To browse the internet',is_correct:false},{text:'To create documents',is_correct:false}]},
+    {id:6,exam_id:2,question_text:'Which shortcut key is used to bold text in Word?',question_type:'mcq',options:[{text:'Ctrl+I',is_correct:false},{text:'Ctrl+U',is_correct:false},{text:'Ctrl+B',is_correct:true},{text:'Ctrl+S',is_correct:false}]},
+    {id:7,exam_id:2,question_text:'In Excel, which function adds numbers together?',question_type:'mcq',options:[{text:'AVERAGE()',is_correct:false},{text:'COUNT()',is_correct:false},{text:'SUM()',is_correct:true},{text:'MAX()',is_correct:false}]},
+    {id:8,exam_id:2,question_text:'What is a cell reference in Excel?',question_type:'mcq',options:[{text:'The color of a cell',is_correct:false},{text:'The address of a cell like A1',is_correct:true},{text:'The size of a cell',is_correct:false},{text:'The border of a cell',is_correct:false}]},
+    {id:9,exam_id:2,question_text:'Which view in PowerPoint shows all slides at once?',question_type:'mcq',options:[{text:'Normal View',is_correct:false},{text:'Slide Show',is_correct:false},{text:'Slide Sorter',is_correct:true},{text:'Reading View',is_correct:false}]},
+    {id:10,exam_id:2,question_text:'What file format is used for PowerPoint presentations?',question_type:'mcq',options:[{text:'.docx',is_correct:false},{text:'.xlsx',is_correct:false},{text:'.pptx',is_correct:true},{text:'.pdf',is_correct:false}]},
+    {id:11,exam_id:3,question_text:'What does HTML stand for?',question_type:'mcq',options:[{text:'Hyper Text Markup Language',is_correct:true},{text:'High Tech Modern Language',is_correct:false},{text:'Hyper Transfer Markup Language',is_correct:false},{text:'Home Tool Markup Language',is_correct:false}]},
+    {id:12,exam_id:3,question_text:'Which CSS property changes the text color?',question_type:'mcq',options:[{text:'font-size',is_correct:false},{text:'color',is_correct:true},{text:'background-color',is_correct:false},{text:'text-align',is_correct:false}]},
+    {id:13,exam_id:3,question_text:'What is the correct way to declare a JavaScript variable?',question_type:'mcq',options:[{text:'variable x = 5;',is_correct:false},{text:'let x = 5;',is_correct:true},{text:'v x = 5;',is_correct:false},{text:'declare x = 5;',is_correct:false}]},
+    {id:14,exam_id:3,question_text:'Which HTML tag creates a hyperlink?',question_type:'mcq',options:[{text:'<link>',is_correct:false},{text:'<a>',is_correct:true},{text:'<href>',is_correct:false},{text:'<url>',is_correct:false}]},
+    {id:15,exam_id:3,question_text:'What does CSS stand for?',question_type:'mcq',options:[{text:'Computer Style Sheets',is_correct:false},{text:'Creative Style System',is_correct:false},{text:'Cascading Style Sheets',is_correct:true},{text:'Colorful Style Sheets',is_correct:false}]},
+    {id:16,exam_id:4,question_text:'What does SEO stand for?',question_type:'mcq',options:[{text:'Social Engine Optimization',is_correct:false},{text:'Search Engine Optimization',is_correct:true},{text:'Search Email Outreach',is_correct:false},{text:'Site Enhancement Operation',is_correct:false}]},
+    {id:17,exam_id:4,question_text:'Which platform is most popular for professional networking?',question_type:'mcq',options:[{text:'Facebook',is_correct:false},{text:'TikTok',is_correct:false},{text:'LinkedIn',is_correct:true},{text:'Snapchat',is_correct:false}]},
+    {id:18,exam_id:4,question_text:'What is a keyword in digital marketing?',question_type:'mcq',options:[{text:'A password for your account',is_correct:false},{text:'A word users search for in search engines',is_correct:true},{text:'A secret code for ads',is_correct:false},{text:'A type of email',is_correct:false}]},
+    {id:19,exam_id:4,question_text:'What is the purpose of a call-to-action (CTA)?',question_type:'mcq',options:[{text:'To display company info',is_correct:false},{text:'To encourage users to take a specific action',is_correct:true},{text:'To play a video',is_correct:false},{text:'To close a webpage',is_correct:false}]},
+    {id:20,exam_id:4,question_text:'Which metric measures website traffic?',question_type:'mcq',options:[{text:'Likes',is_correct:false},{text:'Followers',is_correct:false},{text:'Page views',is_correct:true},{text:'Shares',is_correct:false}]},
+    {id:21,exam_id:5,question_text:'What is the shortcut to create a new layer in Photoshop?',question_type:'mcq',options:[{text:'Ctrl+N',is_correct:false},{text:'Ctrl+Shift+N',is_correct:true},{text:'Ctrl+L',is_correct:false},{text:'Ctrl+J',is_correct:false}]},
+    {id:22,exam_id:5,question_text:'Which tool is used to select and move parts of an image?',question_type:'mcq',options:[{text:'Brush Tool',is_correct:false},{text:'Crop Tool',is_correct:false},{text:'Move Tool',is_correct:true},{text:'Eraser Tool',is_correct:false}]},
+    {id:23,exam_id:5,question_text:'What color mode is best for digital designs?',question_type:'mcq',options:[{text:'CMYK',is_correct:false},{text:'RGB',is_correct:true},{text:'Grayscale',is_correct:false},{text:'Indexed',is_correct:false}]},
+    {id:24,exam_id:5,question_text:'What does a layer mask do?',question_type:'mcq',options:[{text:'Deletes parts of an image permanently',is_correct:false},{text:'Hides or reveals parts of a layer non-destructively',is_correct:true},{text:'Adds a color overlay',is_correct:false},{text:'Locks the layer',is_correct:false}]},
+    {id:25,exam_id:5,question_text:'What resolution is recommended for print design?',question_type:'mcq',options:[{text:'72 DPI',is_correct:false},{text:'150 DPI',is_correct:false},{text:'300 DPI',is_correct:true},{text:'600 DPI',is_correct:false}]},
+    {id:26,exam_id:6,question_text:'What is the most important quality of a leader?',question_type:'mcq',options:[{text:'Being the loudest person',is_correct:false},{text:'Ability to inspire and guide others',is_correct:true},{text:'Working alone',is_correct:false},{text:'Avoiding responsibility',is_correct:false}]},
+    {id:27,exam_id:6,question_text:'Which communication method is most effective for professional settings?',question_type:'mcq',options:[{text:'Gossip',is_correct:false},{text:'Clear and respectful communication',is_correct:true},{text:'Ignoring messages',is_correct:false},{text:'Only using social media',is_correct:false}]},
+    {id:28,exam_id:6,question_text:'What is delegation in leadership?',question_type:'mcq',options:[{text:'Doing everything yourself',is_correct:false},{text:'Assigning tasks to team members appropriately',is_correct:true},{text:'Avoiding work',is_correct:false},{text:'Giving up leadership',is_correct:false}]},
+    {id:29,exam_id:6,question_text:'What is a SMART goal?',question_type:'mcq',options:[{text:'A goal that is easy',is_correct:false},{text:'Specific, Measurable, Achievable, Relevant, Time-bound',is_correct:true},{text:'A goal about technology',is_correct:false},{text:'A quick goal',is_correct:false}]},
+    {id:30,exam_id:6,question_text:'Why is feedback important in a team?',question_type:'mcq',options:[{text:'It is not important',is_correct:false},{text:'It helps team members improve and grow',is_correct:true},{text:'It creates conflict',is_correct:false},{text:'It wastes time',is_correct:false}]}
+  ],
+  enrollments: [
+    {id:1,student_id:1,course_id:1,enrollment_date:'2025-03-01',progress_percentage:100,status:'completed'},
+    {id:2,student_id:1,course_id:3,enrollment_date:'2025-03-15',progress_percentage:50,status:'in_progress'},
+    {id:3,student_id:1,course_id:4,enrollment_date:'2025-04-01',progress_percentage:33,status:'in_progress'},
+    {id:4,student_id:2,course_id:1,enrollment_date:'2025-03-10',progress_percentage:67,status:'in_progress'}
+  ],
+  lesson_progress: [
+    {id:1,student_id:1,lesson_id:1,completed:true},{id:2,student_id:1,lesson_id:2,completed:true},{id:3,student_id:1,lesson_id:3,completed:true},{id:4,student_id:1,lesson_id:4,completed:true},{id:5,student_id:1,lesson_id:5,completed:true},{id:6,student_id:1,lesson_id:6,completed:true},
+    {id:7,student_id:1,lesson_id:15,completed:true},{id:8,student_id:1,lesson_id:16,completed:true},{id:9,student_id:1,lesson_id:17,completed:true},
+    {id:10,student_id:1,lesson_id:21,completed:true},{id:11,student_id:1,lesson_id:22,completed:true},
+    {id:12,student_id:2,lesson_id:1,completed:true},{id:13,student_id:2,lesson_id:2,completed:true},{id:14,student_id:2,lesson_id:3,completed:true},{id:15,student_id:2,lesson_id:4,completed:true}
+  ],
+  exam_results: [{id:1,student_id:1,exam_id:1,score:80,result_status:'passed',exam_date:'2025-03-20'}],
+  certificates: [{id:1,student_id:1,course_id:1,certificate_number:'ADS-2025-00001',qr_code:'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ADS-2025-00001',issue_date:'2025-03-21',status:'active'}],
+  payments: [{id:1,student_id:1,course_id:3,amount:1500,payment_method:'Telebirr',transaction_id:'TEL-2025-001',status:'completed',payment_date:'2025-03-15'}],
+  notifications: [
+    {id:1,user_id:1,title:'Welcome to ADS Academy!',message:'Your account has been created successfully. Start exploring courses!',read_status:false,created_at:'2025-01-15'},
+    {id:2,user_id:1,title:'Course Completed',message:'Congratulations! You completed Basic Computer Skills.',read_status:false,created_at:'2025-03-20'},
+    {id:3,user_id:1,title:'Certificate Ready',message:'Your certificate for Basic Computer Skills is now available.',read_status:true,created_at:'2025-03-21'}
+  ],
+  blog_posts: [
+    {id:1,author_id:7,title:'5 Digital Skills Every Ethiopian Student Needs in 2025',content:'The digital economy is growing rapidly in Ethiopia. Here are the essential skills every student should learn: 1) Basic computer literacy, 2) Internet safety, 3) Microsoft Office, 4) Digital communication, 5) Online research skills. These foundational skills open doors to better education and career opportunities.',image:'https://picsum.photos/seed/blog1/800/400',status:'published',created_at:'2025-03-01'},
+    {id:2,author_id:7,title:'Why Web Development is a Great Career Choice in Ethiopia',content:'Ethiopia tech ecosystem is expanding with new startups and digital services. Web development offers flexible work opportunities, remote work potential, and competitive salaries. Learn HTML, CSS, and JavaScript to start your journey in this exciting field.',image:'https://picsum.photos/seed/blog2/800/400',status:'published',created_at:'2025-03-10'},
+    {id:3,author_id:7,title:'New Course Launch: Leadership & Professional Development',content:'We are excited to announce our newest course on Leadership & Professional Development. This free course covers essential skills for career growth including communication, team management, and strategic thinking. Enroll now!',image:'https://picsum.photos/seed/blog3/800/400',status:'published',created_at:'2025-03-15'}
+  ],
+  events: [
+    {id:1,title:'Digital Skills Workshop - Hawassa',description:'Free workshop on basic digital skills for community members.',event_date:'2025-04-15',image:'https://picsum.photos/seed/event1/600/300'},
+    {id:2,title:'Career Fair 2025',description:'Connect with employers and explore career opportunities in tech.',event_date:'2025-05-01',image:'https://picsum.photos/seed/event2/600/300'}
+  ],
+  system_logs:[]
+};
+
+function getDB(){
+  if(!localStorage.getItem('ads_db')){localStorage.setItem('ads_db',JSON.stringify(DEFAULT_DB))}
+  return JSON.parse(localStorage.getItem('ads_db'));
+}
+function saveDB(db){localStorage.setItem('ads_db',JSON.stringify(db))}
+function resetDB(){localStorage.removeItem('ads_db');location.reload()}
+
+// ==================== AUTH ====================
+let currentUser=null;
+let currentPage='home';
+let pageParams={};
+
+function initAuth(){
+  const saved=localStorage.getItem('ads_current_user');
+  if(saved)currentUser=JSON.parse(saved);
+}
+function login(username,password){
+  const db=getDB();
+  const user=db.users.find(u=>u.username===username&&u.password_hash===password);
+  if(user){if(!user.status){return{success:false,message:'Account is suspended'}}currentUser=user;localStorage.setItem('ads_current_user',JSON.stringify(user));return{success:true,message:'Login successful',role:user.role}}
+  return{success:false,message:'Invalid username or password'};
+}
+function register(data){
+  const db=getDB();
+  if(db.users.find(u=>u.username===data.username))return{success:false,message:'Username already taken'};
+  if(db.users.find(u=>u.phone===data.phone))return{success:false,message:'Phone number already registered'};
+  const newId=Math.max(...db.users.map(u=>u.id))+1;
+  const user={id:newId,username:data.username,full_name:data.full_name,email:data.email||'',phone:data.phone,password_hash:data.password,profile_image:data.profile_image||'https://picsum.photos/seed/default-avatar/200/200',role:'student',status:true,created_at:new Date().toISOString().split('T')[0]};
+  db.users.push(user);
+  const sid=Math.max(...db.student_profiles.map(s=>s.id),0)+1;
+  const snum=db.student_profiles.length+1;
+  db.student_profiles.push({id:sid,user_id:newId,student_id:'ADS-2025-'+String(snum).padStart(4,'0'),education_level:data.education_level||'',location:data.location||'',registration_date:user.created_at});
+  db.notifications.push({id:db.notifications.length+1,user_id:newId,title:'Welcome to ADS Academy!',message:'Your account has been created successfully. Start exploring courses!',read_status:false,created_at:new Date().toISOString().split('T')[0]});
+  saveDB(db);currentUser=user;localStorage.setItem('ads_current_user',JSON.stringify(user));
+  return{success:true,message:'Registration successful'};
+}
+function logout(){currentUser=null;localStorage.removeItem('ads_current_user');navigate('home')}
+function getUserProfile(userId){
+  const db=getDB();
+  const user=db.users.find(u=>u.id===userId);
+  if(!user)return null;
+  if(user.role==='student'){const sp=db.student_profiles.find(s=>s.user_id===userId);return{...user,...sp}}
+  if(user.role==='instructor'){const ip=db.instructor_profiles.find(i=>i.user_id===userId);return{...user,...ip}}
+  return user;
+}
+
+// ==================== TOAST ====================
+function showToast(message,type='success'){
+  const c=document.getElementById('toast-container');
+  const t=document.createElement('div');
+  t.className=`toast toast-${type}`;
+  const icon=type==='success'?'fa-check-circle':type==='error'?'fa-exclamation-circle':'fa-info-circle';
+  t.innerHTML=`<i class="fas ${icon}"></i><span>${message}</span>`;
+  c.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300)},3500);
+}
+
+// ==================== ROUTER ====================
+function navigate(page,params={}){
+  currentPage=page;pageParams=params;
+  window.scrollTo({top:0,behavior:'smooth'});
+  render();
+}
+
+function render(){
+  const app=document.getElementById('app');
+  const isAdmin=currentUser&&(currentUser.role==='admin'||currentUser.role==='superadmin');
+  const isInstructor=currentUser&&currentUser.role==='instructor';
+  const isStudent=currentUser&&currentUser.role==='student';
+
+  if(isAdmin){app.innerHTML=renderAdminLayout();initAdminCharts();return}
+  if(isInstructor){app.innerHTML=renderInstructorLayout();return}
+
+  let header=renderPublicHeader();
+  let content='';
+  switch(currentPage){
+    case'home':content=renderHome();break;
+    case'about':content=renderAbout();break;
+    case'courses':content=renderCourses();break;
+    case'course-detail':content=renderCourseDetail();break;
+    case'instructors':content=renderInstructors();break;
+    case'certificate-verify':content=renderCertVerify();break;
+    case'blog':content=renderBlog();break;
+    case'contact':content=renderContact();break;
+    case'login':content=renderLogin();break;
+    case'register':content=renderRegister();break;
+    case'student-dashboard':content=renderStudentDashboard();break;
+    case'student-learning':content=renderStudentLearning();break;
+    case'student-exam':content=renderStudentExam();break;
+    case'student-certificates':content=renderStudentCertificates();break;
+    case'student-profile':content=renderStudentProfile();break;
+    default:content=renderHome();
+  }
+  let footer=renderPublicFooter();
+  app.innerHTML=header+`<main class="page-transition">${content}</main>`+footer;
+  initScrollAnimations();
+}
+
+// ==================== PUBLIC HEADER ====================
+function renderPublicHeader(){
+  const links=[
+    {page:'home',label:'Home'},{page:'about',label:'About'},{page:'courses',label:'Courses'},
+    {page:'instructors',label:'Instructors'},{page:'blog',label:'Blog'},{page:'contact',label:'Contact'}
+  ];
+  const isStudent=currentUser&&currentUser.role==='student';
+  return`
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <div class="flex items-center gap-2 cursor-pointer" onclick="navigate('home')">
+          <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+            <i class="fas fa-graduation-cap text-gold text-lg"></i>
+          </div>
+          <div class="hidden sm:block">
+            <div class="text-primary font-poppins font-bold text-sm leading-tight">Africa Digital Skills</div>
+            <div class="text-primary-light text-xs">Professional Development Academy</div>
+          </div>
+        </div>
+        <nav class="hidden lg:flex items-center gap-6">
+          ${links.map(l=>`<span class="nav-link ${currentPage===l.page?'active text-primary':'text-gray-600 hover:text-primary'} text-sm font-medium cursor-pointer" onclick="navigate('${l.page}')">${l.label}</span>`).join('')}
+        </nav>
+        <div class="flex items-center gap-3">
+          ${isStudent?`
+            <button class="btn-primary btn-sm" onclick="navigate('student-dashboard')"><i class="fas fa-th-large"></i> Dashboard</button>
+            <div class="relative">
+              <img src="${currentUser.profile_image}" class="w-9 h-9 rounded-full object-cover border-2 border-gold cursor-pointer" onclick="navigate('student-profile')">
+              <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-white text-[10px] flex items-center justify-center">${getDB().notifications.filter(n=>n.user_id===currentUser.id&&!n.read_status).length}</span>
+            </div>
+          `:`
+            <button class="btn-outline btn-sm hidden sm:inline-flex" onclick="navigate('login')">Login</button>
+            <button class="btn-primary btn-sm" onclick="navigate('register')">Register</button>
+          `}
+          <button class="lg:hidden text-primary text-xl p-2" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t">
+      <div class="px-4 py-3 space-y-2">
+        ${links.map(l=>`<div class="py-2 px-3 rounded-lg ${currentPage===l.page?'bg-primary/5 text-primary':'text-gray-600'} font-medium cursor-pointer" onclick="navigate('${l.page}');closeMobileMenu()">${l.label}</div>`).join('')}
+      </div>
+    </div>
+  </header>`;
+}
+function toggleMobileMenu(){document.getElementById('mobile-menu')?.classList.toggle('hidden')}
+function closeMobileMenu(){document.getElementById('mobile-menu')?.classList.add('hidden')}
+
+// ==================== PUBLIC FOOTER ====================
+function renderPublicFooter(){
+  return`
+  <footer class="bg-primary-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center"><i class="fas fa-graduation-cap text-primary text-lg"></i></div>
+            <div><div class="font-poppins font-bold text-sm">Africa Digital Skills</div><div class="text-gray-300 text-xs">Professional Development Academy</div></div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Empowering Ethiopia through digital skills and professional development. Your gateway to a successful career in technology.</p>
+        </div>
+        <div>
+          <h4 class="font-poppins font-semibold mb-4 text-gold">Quick Links</h4>
+          <div class="space-y-2 text-sm text-gray-300">
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('about')">About Academy</div>
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('courses')">Our Courses</div>
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('instructors')">Instructors</div>
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('certificate-verify')">Verify Certificate</div>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-poppins font-semibold mb-4 text-gold">Programs</h4>
+          <div class="space-y-2 text-sm text-gray-300">
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('courses')">Computer Skills</div>
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('courses')">Web Development</div>
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('courses')">Digital Marketing</div>
+            <div class="cursor-pointer hover:text-gold transition" onclick="navigate('courses')">Graphic Design</div>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-poppins font-semibold mb-4 text-gold">Contact Us</h4>
+          <div class="space-y-3 text-sm text-gray-300">
+            <div class="flex items-start gap-2"><i class="fas fa-map-marker-alt mt-1 text-gold"></i><span>Hawassa, Ethiopia</span></div>
+            <div class="flex items-center gap-2"><i class="fas fa-phone text-gold"></i><span>+251 91 122 3344</span></div>
+            <div class="flex items-center gap-2"><i class="fas fa-envelope text-gold"></i><span>info@africadigitalskills.com</span></div>
+          </div>
+          <div class="flex gap-3 mt-4">
+            <a class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition cursor-pointer"><i class="fab fa-facebook-f text-sm"></i></a>
+            <a class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition cursor-pointer"><i class="fab fa-telegram-plane text-sm"></i></a>
+            <a class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition cursor-pointer"><i class="fab fa-youtube text-sm"></i></a>
+            <a class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition cursor-pointer"><i class="fab fa-linkedin-in text-sm"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 mt-10 pt-6 text-center text-sm text-gray-400">
+        &copy; ${new Date().getFullYear()} Africa Digital Skills & Professional Development Academy. All rights reserved.
+      </div>
+    </div>
+  </footer>`;
+}
+
+// ==================== HOME PAGE ====================
+function renderHome(){
+  const db=getDB();
+  const publishedCourses=db.courses.filter(c=>c.status==='published');
+  const featured=publishedCourses.slice(0,4);
+  const instructors=db.users.filter(u=>u.role==='instructor').slice(0,4);
+  return`
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-br from-primary-dark via-primary to-primary-light overflow-hidden min-h-[85vh] flex items-center">
+    <div class="hero-shape hero-shape-1"></div><div class="hero-shape hero-shape-2"></div><div class="hero-shape hero-shape-3"></div><div class="hero-shape hero-shape-4"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative z-10 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <i class="fas fa-star"></i> Ethiopia's Leading Digital Skills Academy
+          </div>
+          <h1 class="font-poppins text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Empowering Ethiopia Through <span class="text-gold">Digital Skills</span> & Professional Development
+          </h1>
+          <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-xl">
+            Learn practical technology, professional, and life skills from experienced instructors through modern online and physical training programs.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button class="btn-gold text-base" onclick="navigate('courses')"><i class="fas fa-rocket"></i> Explore Courses</button>
+            <button class="btn-outline border-white text-white hover:bg-white hover:text-primary text-base" onclick="navigate('register')"><i class="fas fa-user-plus"></i> Register Now</button>
+          </div>
+          <div class="flex items-center gap-6 mt-10 text-sm text-gray-300">
+            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-light"></i> Free Courses</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-light"></i> Certified Training</div>
+            <div class="flex items-center gap-2"><i class="fas fa-check-circle text-accent-light"></i> Learn Anywhere</div>
+          </div>
+        </div>
+        <div class="hidden lg:block">
+          <div class="relative">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+              <img src="https://picsum.photos/seed/hero-education/600/450" class="rounded-xl w-full object-cover" alt="Digital Learning">
+            </div>
+            <div class="absolute -bottom-6 -left-6 bg-gold text-primary rounded-xl p-4 shadow-xl">
+              <div class="font-poppins font-bold text-2xl">1000+</div>
+              <div class="text-sm font-medium">Students Trained</div>
+            </div>
+            <div class="absolute -top-4 -right-4 bg-white rounded-xl p-4 shadow-xl">
+              <div class="flex items-center gap-2"><i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i><i class="fas fa-star text-gold"></i></div>
+              <div class="text-sm text-gray-600 mt-1">Rated Excellent</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="relative -mt-12 z-20 max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      ${[
+        {num:'1000+',label:'Students Trained',icon:'fa-users',color:'from-primary to-primary-light'},
+        {num:'5+',label:'Years Experience',icon:'fa-clock',color:'from-gold-dark to-gold'},
+        {num:'30+',label:'Professional Courses',icon:'fa-book-open',color:'from-accent to-accent-light'},
+        {num:'15+',label:'Qualified Instructors',icon:'fa-chalkboard-teacher',color:'from-primary-lighter to-primary'}
+      ].map((s,i)=>`
+        <div class="stat-card bg-white rounded-xl p-6 shadow-lg text-center" style="animation-delay:${i*0.1}s">
+          <div class="w-12 h-12 bg-gradient-to-br ${s.color} rounded-xl flex items-center justify-center mx-auto mb-3"><i class="fas ${s.icon} text-white"></i></div>
+          <div class="font-poppins font-bold text-2xl text-primary">${s.num}</div>
+          <div class="text-sm text-gray-500">${s.label}</div>
+        </div>
+      `).join('')}
+    </div>
+  </section>
+
+  <!-- About Intro -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="relative">
+        <img src="https://picsum.photos/seed/academy-about/600/450" class="rounded-2xl shadow-xl w-full object-cover" alt="Academy">
+        <div class="absolute -bottom-6 -right-6 bg-primary text-white rounded-xl p-6 shadow-xl hidden md:block">
+          <div class="font-poppins font-bold text-3xl text-gold">5+</div>
+          <div class="text-sm">Years of Excellence</div>
+        </div>
+      </div>
+      <div>
+        <div class="text-gold font-semibold text-sm mb-2">ABOUT OUR ACADEMY</div>
+        <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-primary mb-6">Building Ethiopia's Digital Future</h2>
+        <p class="text-gray-600 leading-relaxed mb-6">With more than five years of experience and over 1,000 trained students, Africa Digital Skills & Professional Development Academy provides practical education for Ethiopia's future workforce.</p>
+        <p class="text-gray-600 leading-relaxed mb-8">We combine expert instruction with modern technology to deliver career-focused training that makes a real difference in our students' lives.</p>
+        <button class="btn-primary" onclick="navigate('about')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Courses -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <div class="text-gold font-semibold text-sm mb-2">OUR COURSES</div>
+        <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-primary mb-4">Featured Courses</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">Choose from our carefully designed courses to start your digital skills journey</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        ${featured.map(c=>renderCourseCard(c)).join('')}
+      </div>
+      <div class="text-center mt-10">
+        <button class="btn-outline" onclick="navigate('courses')">View All Courses <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-20 bg-gradient-to-br from-primary-dark via-primary to-primary-light text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <div class="text-gold font-semibold text-sm mb-2">WHY CHOOSE US</div>
+        <h2 class="font-poppins text-3xl sm:text-4xl font-bold mb-4">What Makes Us Different</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto">We deliver education that creates real career impact</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        ${[
+          {icon:'fa-chalkboard-teacher',title:'Experienced Trainers',desc:'Professional instructors and guest lecturers with real industry experience.'},
+          {icon:'fa-laptop-code',title:'Practical Education',desc:'Skills designed for real-world application, not just theory.'},
+          {icon:'fa-certificate',title:'Certified Training',desc:'Receive a verified certificate after successful examination.'},
+          {icon:'fa-wifi',title:'Online Learning',desc:'Study from anywhere in Ethiopia at your own pace.'}
+        ].map(w=>`
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/20 transition">
+            <div class="w-14 h-14 bg-gold/20 rounded-xl flex items-center justify-center mb-4"><i class="fas ${w.icon} text-gold text-xl"></i></div>
+            <h3 class="font-poppins font-semibold text-lg mb-2">${w.title}</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">${w.desc}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Instructors -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <div class="text-gold font-semibold text-sm mb-2">OUR TEAM</div>
+        <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-primary mb-4">Meet Our Instructors</h2>
+        <p class="text-gray-500 max-w-2xl mx-auto">Learn from experienced professionals who are passionate about teaching</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        ${instructors.map(u=>{
+          const p=db.instructor_profiles.find(ip=>ip.user_id===u.id);
+          const cCount=db.courses.filter(c=>c.instructor_id===u.id).length;
+          return`
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group">
+            <div class="relative overflow-hidden"><img src="${u.profile_image}" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500" alt="${u.full_name}">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-poppins font-semibold text-primary">${u.full_name}</h3>
+              <p class="text-gold text-sm font-medium">${p?p.expertise.split(',')[0]:'Instructor'}</p>
+              <p class="text-gray-500 text-sm mt-2 line-clamp-2">${p?p.biography:''}</p>
+              <div class="flex items-center justify-between mt-4 pt-4 border-t">
+                <span class="text-sm text-gray-500"><i class="fas fa-book-open text-gold mr-1"></i>${cCount} Courses</span>
+                <button class="text-primary text-sm font-medium hover:text-gold transition" onclick="navigate('instructors')">View Profile</button>
+              </div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <div class="text-gold font-semibold text-sm mb-2">TESTIMONIALS</div>
+        <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-primary mb-4">What Our Students Say</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        ${[
+          {name:'Abel Tesfaye',course:'Basic Computer Skills',text:'This academy transformed my career. I went from knowing nothing about computers to getting an IT support job within 3 months of completing my course.',img:'https://picsum.photos/seed/test1/100/100'},
+          {name:'Hana Girma',course:'Web Development',text:'The instructors are amazing. They explain complex topics in simple ways. I built my first website during the course and now I freelance as a web developer.',img:'https://picsum.photos/seed/test2/100/100'},
+          {name:'Samuel Tadesse',course:'Digital Marketing',text:'Practical, relevant, and career-focused. The digital marketing course helped me grow my small business online. Highly recommended for every entrepreneur.',img:'https://picsum.photos/seed/test3/100/100'}
+        ].map(t=>`
+          <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+            <div class="flex text-gold gap-1 mb-4">${'<i class="fas fa-star text-sm"></i>'.repeat(5)}</div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">"${t.text}"</p>
+            <div class="flex items-center gap-3">
+              <img src="${t.img}" class="w-10 h-10 rounded-full object-cover" alt="${t.name}">
+              <div><div class="font-poppins font-semibold text-sm text-primary">${t.name}</div><div class="text-xs text-gray-500">${t.course}</div></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <div class="text-gold font-semibold text-sm mb-2">LATEST NEWS</div>
+        <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-primary mb-4">News & Events</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        ${db.blog_posts.slice(0,3).map(p=>`
+          <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition group cursor-pointer" onclick="navigate('blog')">
+            <div class="overflow-hidden"><img src="${p.image}" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500" alt="${p.title}"></div>
+            <div class="p-5">
+              <div class="text-xs text-gray-400 mb-2"><i class="far fa-calendar mr-1"></i>${p.created_at}</div>
+              <h3 class="font-poppins font-semibold text-primary mb-2 line-clamp-2">${p.title}</h3>
+              <p class="text-gray-500 text-sm line-clamp-2">${p.content}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-r from-gold-dark via-gold to-gold-light">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="font-poppins text-3xl sm:text-4xl font-bold text-primary-dark mb-4">Start Building Your Future Today</h2>
+      <p class="text-primary-dark/80 text-lg mb-8">Join over 1,000 students who have already started their digital skills journey with us.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="bg-primary text-white px-8 py-3 rounded-lg font-poppins font-semibold hover:bg-primary-light transition" onclick="navigate('register')">Register Now <i class="fas fa-arrow-right ml-2"></i></button>
+        <button class="bg-white text-primary px-8 py-3 rounded-lg font-poppins font-semibold hover:bg-gray-100 transition" onclick="navigate('courses')">Browse Courses</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificate Verify Quick -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
+      <i class="fas fa-certificate text-gold text-4xl mb-4"></i>
+      <h3 class="font-poppins font-bold text-xl text-primary mb-2">Verify a Certificate</h3>
+      <p class="text-gray-500 text-sm mb-6">Enter a certificate number to verify its authenticity</p>
+      <div class="flex gap-2">
+        <input id="quick-cert-input" class="input-field flex-1" placeholder="e.g. ADS-2025-00001">
+        <button class="btn-primary" onclick="quickVerifyCert()">Verify</button>
+      </div>
+    </div>
+  </section>`;
+}
+
+function quickVerifyCert(){
+  const input=document.getElementById('quick-cert-input');
+  if(input&&input.value.trim()){navigate('certificate-verify',{number:input.value.trim()})}
+}
+
+// ==================== COURSE CARD COMPONENT ====================
+function renderCourseCard(c){
+  const db=getDB();
+  const inst=db.users.find(u=>u.id===c.instructor_id);
+  const cat=db.categories.find(ct=>ct.id===c.category_id);
+  return`
+  <div class="course-card bg-white rounded-xl shadow-md overflow-hidden cursor-pointer" onclick="navigate('course-detail',{id:${c.id}})">
+    <div class="relative overflow-hidden">
+      <img src="${c.thumbnail}" class="w-full h-44 object-cover" alt="${c.title}">
+      <div class="absolute top-3 left-3">${c.is_free?'<span class="badge-free">Free</span>':'<span class="badge-paid">'+c.price+' ETB</span>'}</div>
+    </div>
+    <div class="p-5">
+      <div class="text-xs text-gold font-medium mb-1">${cat?cat.name:''} &bull; ${c.level}</div>
+      <h3 class="font-poppins font-semibold text-primary mb-2 line-clamp-1">${c.title}</h3>
+      <p class="text-gray-500 text-sm line-clamp-2 mb-4">${c.description}</p>
+      <div class="flex items-center justify-between pt-3 border-t border-gray-100">
+        <div class="flex items-center gap-2">
+          <img src="${inst?inst.profile_image:'https://picsum.photos/seed/unknown/100/100'}" class="w-6 h-6 rounded-full object-cover" alt="">
+          <span class="text-xs text-gray-500">${inst?inst.full_name:''}</span>
+        </div>
+        <span class="text-xs text-gray-400"><i class="far fa-clock mr-1"></i>${c.duration}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ==================== ABOUT PAGE ====================
+function renderAbout(){
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-poppins text-4xl font-bold mb-4">About Our Academy</h1>
+      <p class="text-gray-300 max-w-2xl mx-auto">Discover the story behind Ethiopia's leading digital skills academy</p>
+    </div>
+  </section>
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div><img src="https://picsum.photos/seed/about-main/600/450" class="rounded-2xl shadow-xl w-full" alt="About"></div>
+      <div>
+        <h2 class="font-poppins text-3xl font-bold text-primary mb-6">Our Story</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">Africa Digital Skills & Professional Development Academy was founded in Hawassa, Ethiopia with a simple but powerful mission: to make quality digital education accessible to every Ethiopian.</p>
+        <p class="text-gray-600 leading-relaxed mb-4">What started as a small computer training center has grown into a respected institution that has trained over 1,000 students in essential digital and professional skills.</p>
+        <p class="text-gray-600 leading-relaxed mb-6">Our experienced instructors bring real-world knowledge to the classroom, ensuring that every student gains practical skills they can immediately apply in their careers.</p>
+        <div class="grid grid-cols-2 gap-4">
+          ${[{n:'1000+',l:'Graduates'},{n:'5+',l:'Years'},{n:'30+',l:'Courses'},{n:'95%',l:'Satisfaction'}].map(s=>`
+            <div class="bg-gray-50 rounded-xl p-4 text-center"><div class="font-poppins font-bold text-2xl text-gold">${s.n}</div><div class="text-sm text-gray-500">${s.l}</div></div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="font-poppins text-3xl font-bold text-primary text-center mb-12">Our Mission & Vision</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gray-50 rounded-2xl p-8">
+          <div class="w-14 h-14 bg-primary rounded-xl flex items-center justify-center mb-4"><i class="fas fa-bullseye text-gold text-xl"></i></div>
+          <h3 class="font-poppins font-bold text-xl text-primary mb-3">Our Mission</h3>
+          <p class="text-gray-600 leading-relaxed">To provide accessible, practical, and career-focused digital education that empowers Ethiopian students with the skills they need to succeed in the modern economy.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-8">
+          <div class="w-14 h-14 bg-gold rounded-xl flex items-center justify-center mb-4"><i class="fas fa-eye text-primary text-xl"></i></div>
+          <h3 class="font-poppins font-bold text-xl text-primary mb-3">Our Vision</h3>
+          <p class="text-gray-600 leading-relaxed">To become Ethiopia's leading digital skills and professional development learning platform, recognized for transforming lives through quality education and technology.</p>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+// ==================== COURSES PAGE ====================
+function renderCourses(){
+  const db=getDB();
+  const courses=db.courses.filter(c=>c.status==='published');
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-poppins text-4xl font-bold mb-4">Our Courses</h1>
+      <p class="text-gray-300 max-w-2xl mx-auto">Explore our professionally designed courses and start learning today</p>
+    </div>
+  </section>
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-wrap items-center gap-4 mb-8">
+      <input id="course-search" class="input-field max-w-sm" placeholder="Search courses..." oninput="filterCourses()">
+      <div class="flex gap-2 flex-wrap">
+        <button class="btn-sm bg-primary text-white rounded-lg" onclick="filterByCategory(0,this)">All</button>
+        ${db.categories.map(c=>`<button class="btn-sm bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition" onclick="filterByCategory(${c.id},this)">${c.name}</button>`).join('')}
+      </div>
+    </div>
+    <div id="courses-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      ${courses.map(c=>renderCourseCard(c)).join('')}
+    </div>
+  </section>`;
+}
+function filterCourses(){
+  const q=document.getElementById('course-search').value.toLowerCase();
+  const db=getDB();
+  const filtered=db.courses.filter(c=>c.status==='published'&&c.title.toLowerCase().includes(q));
+  document.getElementById('courses-grid').innerHTML=filtered.length?filtered.map(c=>renderCourseCard(c)).join(''):'<div class="col-span-full text-center py-12 text-gray-500">No courses found</div>';
+}
+function filterByCategory(catId,btn){
+  const db=getDB();
+  const courses=catId===0?db.courses.filter(c=>c.status==='published'):db.courses.filter(c=>c.status==='published'&&c.category_id===catId);
+  document.getElementById('courses-grid').innerHTML=courses.map(c=>renderCourseCard(c)).join('');
+  btn.parentElement.querySelectorAll('button').forEach(b=>{b.className='btn-sm bg-gray-100 text-gray-600 rounded-lg hover:bg-primary hover:text-white transition'});
+  btn.className='btn-sm bg-primary text-white rounded-lg';
+}
+
+// ==================== COURSE DETAIL PAGE ====================
+function renderCourseDetail(){
+  const db=getDB();
+  const c=db.courses.find(co=>co.id===pageParams.id);
+  if(!c)return'<div class="text-center py-20"><h2 class="text-2xl font-bold text-gray-400">Course Not Found</h2></div>';
+  const inst=db.users.find(u=>u.id===c.instructor_id);
+  const instP=db.instructor_profiles.find(ip=>ip.user_id===c.instructor_id);
+  const cat=db.categories.find(ct=>ct.id===c.category_id);
+  const lessons=db.lessons.filter(l=>l.course_id===c.id).sort((a,b)=>a.order-b.order);
+  const isEnrolled=currentUser&&db.enrollments.some(e=>e.student_id===currentUser.id&&e.course_id===c.id);
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center gap-2 text-sm text-gray-300 mb-4"><span class="cursor-pointer hover:text-gold" onclick="navigate('courses')">Courses</span> <i class="fas fa-chevron-right text-xs"></i> <span>${c.title}</span></div>
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            ${c.is_free?'<span class="badge-free">Free</span>':'<span class="badge-paid">'+c.price+' ETB</span>'}
+            <span class="bg-white/10 px-3 py-1 rounded-full text-xs">${c.level}</span>
+            <span class="bg-white/10 px-3 py-1 rounded-full text-xs">${cat?cat.name:''}</span>
+          </div>
+          <h1 class="font-poppins text-3xl sm:text-4xl font-bold mb-4">${c.title}</h1>
+          <div class="flex items-center gap-4 text-sm text-gray-300 mb-6">
+            <span><i class="far fa-clock mr-1"></i>${c.duration}</span>
+            <span><i class="fas fa-layer-group mr-1"></i>${lessons.length} Lessons</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="${inst?inst.profile_image:''}" class="w-12 h-12 rounded-full object-cover border-2 border-gold" alt="">
+          <div><div class="font-medium">${inst?inst.full_name:''}</div><div class="text-xs text-gray-300">${instP?instP.expertise.split(',')[0]:''}</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 space-y-8">
+        <div><img src="${c.thumbnail}" class="w-full rounded-xl shadow-md" alt="${c.title}"></div>
+        <div>
+          <h2 class="font-poppins font-bold text-xl text-primary mb-4">Course Description</h2>
+          <p class="text-gray-600 leading-relaxed">${c.description}</p>
+        </div>
+        <div>
+          <h2 class="font-poppins font-bold text-xl text-primary mb-4">What You'll Learn</h2>
+          <div class="grid sm:grid-cols-2 gap-3">${c.objectives.split(',').map(o=>`<div class="flex items-start gap-2"><i class="fas fa-check-circle text-accent mt-1"></i><span class="text-gray-600 text-sm">${o.trim()}</span></div>`).join('')}</div>
+        </div>
+        <div>
+          <h2 class="font-poppins font-bold text-xl text-primary mb-4">Course Curriculum</h2>
+          <div class="space-y-2">${lessons.map((l,i)=>`
+            <div class="bg-white rounded-lg p-4 border border-gray-100 flex items-center gap-4">
+              <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center text-primary font-semibold text-sm">${i+1}</div>
+              <div class="flex-1"><div class="font-medium text-sm">${l.title}</div><div class="text-xs text-gray-400">${l.video_url?'Video Lesson':'Text Lesson'}</div></div>
+              <i class="fas fa-lock text-gray-300 text-sm"></i>
+            </div>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="bg-white rounded-xl shadow-lg p-6 sticky top-24">
+          <div class="text-center mb-6">
+            <div class="font-poppins font-bold text-3xl ${c.is_free?'text-accent':'text-primary'}">${c.is_free?'Free':c.price+' ETB'}</div>
+          </div>
+          ${isEnrolled?`
+            <button class="btn-gold w-full justify-center mb-3" onclick="navigate('student-learning',{id:${c.id}})"><i class="fas fa-play"></i> Continue Learning</button>
+          `:c.is_free?`
+            <button class="btn-gold w-full justify-center mb-3" onclick="enrollCourse(${c.id})"><i class="fas fa-plus"></i> Enroll for Free</button>
+          `:`
+            <button class="btn-gold w-full justify-center mb-3" onclick="showToast('Payment integration coming soon!','info')"><i class="fas fa-credit-card"></i> Purchase Course</button>
+          `}
+          <div class="space-y-3 text-sm text-gray-600 pt-4 border-t">
+            <div class="flex items-center gap-2"><i class="fas fa-layer-group text-gold w-5"></i>${lessons.length} Lessons</div>
+            <div class="flex items-center gap-2"><i class="far fa-clock text-gold w-5"></i>${c.duration}</div>
+            <div class="flex items-center gap-2"><i class="fas fa-signal text-gold w-5"></i>${c.level} Level</div>
+            <div class="flex items-center gap-2"><i class="fas fa-certificate text-gold w-5"></i>Certificate of Completion</div>
+            <div class="flex items-center gap-2"><i class="fas fa-infinity text-gold w-5"></i>Lifetime Access</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+function enrollCourse(courseId){
+  if(!currentUser){showToast('Please login first','error');navigate('login');return}
+  const db=getDB();
+  if(db.enrollments.find(e=>e.student_id===currentUser.id&&e.course_id===courseId)){showToast('Already enrolled','info');return}
+  db.enrollments.push({id:db.enrollments.length+1,student_id:currentUser.id,course_id:courseId,enrollment_date:new Date().toISOString().split('T')[0],progress_percentage:0,status:'in_progress'});
+  saveDB(db);showToast('Enrolled successfully!');navigate('student-learning',{id:courseId});
+}
+
+// ==================== INSTRUCTORS PAGE ====================
+function renderInstructors(){
+  const db=getDB();
+  const instructors=db.users.filter(u=>u.role==='instructor');
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-poppins text-4xl font-bold mb-4">Our Instructors</h1>
+      <p class="text-gray-300 max-w-2xl mx-auto">Learn from experienced professionals who bring real-world expertise to every lesson</p>
+    </div>
+  </section>
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      ${instructors.map(u=>{
+        const p=db.instructor_profiles.find(ip=>ip.user_id===u.id);
+        const courses=db.courses.filter(c=>c.instructor_id===u.id);
+        return`
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <div class="relative"><img src="${u.profile_image}" class="w-full h-64 object-cover" alt="${u.full_name}"><div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 text-white"><h3 class="font-poppins font-bold text-xl">${u.full_name}</h3><p class="text-gold text-sm">${p?p.expertise:''}</p></div></div>
+          <div class="p-6">
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">${p?p.biography:''}</p>
+            <div class="flex items-center gap-2 mb-4"><i class="fas fa-briefcase text-gold text-sm"></i><span class="text-sm text-gray-500">${p?p.experience:''}</span></div>
+            <div class="border-t pt-4"><div class="text-sm font-medium text-primary mb-2">Courses (${courses.length})</div>
+            <div class="flex flex-wrap gap-2">${courses.map(c=>`<span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">${c.title}</span>`).join('')}</div></div>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+  </section>`;
+}
+
+// ==================== CERTIFICATE VERIFY PAGE ====================
+function renderCertVerify(){
+  const db=getDB();
+  const prefill=pageParams.number||'';
+  let resultHTML='';
+  if(prefill){
+    const cert=db.certificates.find(c=>c.certificate_number===prefill);
+    if(cert){
+      const user=db.users.find(u=>u.id===cert.student_id);
+      const course=db.courses.find(c=>c.id===cert.course_id);
+      resultHTML=`
+      <div class="bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-accent">
+        <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-check-circle text-accent text-4xl"></i></div>
+        <h3 class="font-poppins font-bold text-2xl text-accent mb-2">Valid Certificate</h3>
+        <div class="max-w-sm mx-auto space-y-3 text-left mt-6">
+          <div class="flex justify-between py-2 border-b"><span class="text-gray-500">Certificate No:</span><span class="font-semibold text-primary">${cert.certificate_number}</span></div>
+          <div class="flex justify-between py-2 border-b"><span class="text-gray-500">Student Name:</span><span class="font-semibold text-primary">${user?user.full_name:'N/A'}</span></div>
+          <div class="flex justify-between py-2 border-b"><span class="text-gray-500">Course:</span><span class="font-semibold text-primary">${course?course.title:'N/A'}</span></div>
+          <div class="flex justify-between py-2 border-b"><span class="text-gray-500">Issue Date:</span><span class="font-semibold text-primary">${cert.issue_date}</span></div>
+          <div class="flex justify-between py-2"><span class="text-gray-500">Status:</span><span class="font-semibold text-accent">Active</span></div>
+        </div>
+        <img src="${cert.qr_code}" class="mx-auto mt-6" alt="QR Code">
+      </div>`;
+    } else {
+      resultHTML=`
+      <div class="bg-white rounded-2xl shadow-lg p-8 text-center border-2 border-red-200">
+        <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-times-circle text-red-500 text-4xl"></i></div>
+        <h3 class="font-poppins font-bold text-2xl text-red-500 mb-2">Certificate Not Found</h3>
+        <p class="text-gray-500">The certificate number "${prefill}" was not found in our system. Please verify the number and try again.</p>
+      </div>`;
+    }
+  }
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-poppins text-4xl font-bold mb-4">Certificate Verification</h1>
+      <p class="text-gray-300 max-w-2xl mx-auto">Verify the authenticity of any certificate issued by our academy</p>
+    </div>
+  </section>
+  <section class="py-16 max-w-2xl mx-auto px-4 sm:px-6">
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+      <div class="text-center mb-6"><i class="fas fa-certificate text-gold text-5xl mb-3"></i><h3 class="font-poppins font-bold text-xl text-primary">Enter Certificate Number</h3></div>
+      <div class="flex gap-3">
+        <input id="cert-verify-input" class="input-field flex-1" placeholder="e.g. ADS-2025-00001" value="${prefill}" onkeydown="if(event.key==='Enter')verifyCert()">
+        <button class="btn-primary" onclick="verifyCert()"><i class="fas fa-search"></i> Verify</button>
+      </div>
+      <p class="text-xs text-gray-400 mt-3 text-center">Try: ADS-2025-00001 to see a working example</p>
+    </div>
+    ${resultHTML}
+  </section>`;
+}
+function verifyCert(){
+  const input=document.getElementById('cert-verify-input');
+  if(input&&input.value.trim())navigate('certificate-verify',{number:input.value.trim()});
+  else showToast('Please enter a certificate number','error');
+}
+
+// ==================== BLOG PAGE ====================
+function renderBlog(){
+  const db=getDB();
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-poppins text-4xl font-bold mb-4">Blog & News</h1>
+      <p class="text-gray-300">Stay updated with the latest from our academy</p>
+    </div>
+  </section>
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      ${db.blog_posts.map(p=>`
+        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="${p.image}" class="w-full h-52 object-cover" alt="${p.title}">
+          <div class="p-6">
+            <div class="text-xs text-gray-400 mb-2"><i class="far fa-calendar mr-1"></i>${p.created_at} &bull; Academy News</div>
+            <h3 class="font-poppins font-bold text-lg text-primary mb-3">${p.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">${p.content.substring(0,150)}...</p>
+          </div>
+        </div>`).join('')}
+    </div>
+  </section>`;
+}
+
+// ==================== CONTACT PAGE ====================
+function renderContact(){
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="font-poppins text-4xl font-bold mb-4">Contact Us</h1>
+      <p class="text-gray-300">We'd love to hear from you. Reach out to us anytime.</p>
+    </div>
+  </section>
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="space-y-6">
+        ${[
+          {icon:'fa-map-marker-alt',title:'Our Location',info:'Hawassa, Ethiopia'},
+          {icon:'fa-phone',title:'Phone',info:'+251 91 122 3344'},
+          {icon:'fa-envelope',title:'Email',info:'info@africadigitalskills.com'},
+          {icon:'fa-clock',title:'Working Hours',info:'Mon - Sat: 8:00 AM - 6:00 PM'}
+        ].map(c=>`
+          <div class="bg-white rounded-xl p-6 shadow-md flex items-start gap-4">
+            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas ${c.icon} text-primary"></i></div>
+            <div><h3 class="font-poppins font-semibold text-primary">${c.title}</h3><p class="text-gray-500 text-sm mt-1">${c.info}</p></div>
+          </div>`).join('')}
+      </div>
+      <div class="lg:col-span-2">
+        <div class="bg-white rounded-xl shadow-md p-8">
+          <h3 class="font-poppins font-bold text-xl text-primary mb-6">Send Us a Message</h3>
+          <div class="grid sm:grid-cols-2 gap-4 mb-4">
+            <input class="input-field" placeholder="Your Name">
+            <input class="input-field" placeholder="Your Email">
+          </div>
+          <input class="input-field mb-4" placeholder="Subject">
+          <textarea class="input-field mb-6" rows="5" placeholder="Your Message"></textarea>
+          <button class="btn-primary" onclick="showToast('Message sent successfully!')">Send Message <i class="fas fa-paper-plane ml-2"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+// ==================== LOGIN PAGE ====================
+function renderLogin(){
+  return`
+  <section class="min-h-[80vh] flex items-center justify-center py-12 px-4">
+    <div class="w-full max-w-md">
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+          <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-graduation-cap text-gold text-2xl"></i></div>
+          <h2 class="font-poppins font-bold text-2xl text-primary">Welcome Back</h2>
+          <p class="text-gray-500 text-sm mt-1">Login to your account</p>
+        </div>
+        <div class="space-y-4">
+          <div><label class="text-sm font-medium text-gray-700 block mb-1">Username</label><input id="login-username" class="input-field" placeholder="Enter your username"></div>
+          <div><label class="text-sm font-medium text-gray-700 block mb-1">Password</label><input id="login-password" type="password" class="input-field" placeholder="Enter your password"></div>
+          <button class="btn-primary w-full justify-center" onclick="handleLogin()">Login <i class="fas fa-sign-in-alt ml-2"></i></button>
+        </div>
+        <div class="text-center mt-6 text-sm text-gray-500">Don't have an account? <span class="text-primary font-medium cursor-pointer hover:text-gold" onclick="navigate('register')">Register here</span></div>
+        <div class="mt-6 p-4 bg-gray-50 rounded-xl">
+          <div class="text-xs font-semibold text-gray-500 mb-2">Demo Accounts:</div>
+          <div class="text-xs text-gray-400 space-y-1">
+            <div>Student: <span class="font-mono text-primary">student01</span> / <span class="font-mono text-primary">password123</span></div>
+            <div>Instructor: <span class="font-mono text-primary">instructor01</span> / <span class="font-mono text-primary">password123</span></div>
+            <div>Admin: <span class="font-mono text-primary">admin01</span> / <span class="font-mono text-primary">admin123</span></div>
+            <div>Super Admin: <span class="font-mono text-primary">superadmin</span> / <span class="font-mono text-primary">super123</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+function handleLogin(){
+  const u=document.getElementById('login-username').value.trim();
+  const p=document.getElementById('login-password').value;
+  if(!u||!p){showToast('Please fill in all fields','error');return}
+  const result=login(u,p);
+  if(result.success){
+    showToast(result.message);
+    if(result.role==='student')navigate('student-dashboard');
+    else if(result.role==='instructor')navigate('instructor-dashboard');
+    else navigate('admin-dashboard');
+  } else showToast(result.message,'error');
+}
+
+// ==================== REGISTER PAGE ====================
+function renderRegister(){
+  return`
+  <section class="min-h-[80vh] flex items-center justify-center py-12 px-4">
+    <div class="w-full max-w-lg">
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center mb-8">
+          <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-user-plus text-gold text-2xl"></i></div>
+          <h2 class="font-poppins font-bold text-2xl text-primary">Create Account</h2>
+          <p class="text-gray-500 text-sm mt-1">Join our academy and start learning</p>
+        </div>
+        <div class="space-y-4">
+          <div><label class="text-sm font-medium text-gray-700 block mb-1">Full Name *</label><input id="reg-name" class="input-field" placeholder="Enter your full name"></div>
+          <div><label class="text-sm font-medium text-gray-700 block mb-1">Username *</label><input id="reg-username" class="input-field" placeholder="Choose a username"></div>
+          <div><label class="text-sm font-medium text-gray-700 block mb-1">Phone Number *</label><input id="reg-phone" class="input-field" placeholder="e.g. 0911223344"></div>
+          <div><label class="text-sm font-medium text-gray-700 block mb-1">Email (Optional)</label><input id="reg-email" class="input-field" placeholder="your@email.com"></div>
+          <div><label class="text-sm font-medium text-gray-700 block mb-1">Password *</label><input id="reg-password" type="password" class="input-field" placeholder="Create a password"></div>
+          <div class="grid grid-cols-2 gap-4">
+            <div><label class="text-sm font-medium text-gray-700 block mb-1">Education Level</label><select id="reg-education" class="input-field"><option value="">Select</option><option>High School</option><option>Diploma</option><option>Bachelor</option><option>Master</option><option>PhD</option></select></div>
+            <div><label class="text-sm font-medium text-gray-700 block mb-1">Location</label><input id="reg-location" class="input-field" placeholder="City"></div>
+          </div>
+          <button class="btn-gold w-full justify-center" onclick="handleRegister()">Create Account <i class="fas fa-arrow-right ml-2"></i></button>
+        </div>
+        <div class="text-center mt-6 text-sm text-gray-500">Already have an account? <span class="text-primary font-medium cursor-pointer hover:text-gold" onclick="navigate('login')">Login here</span></div>
+      </div>
+    </div>
+  </section>`;
+}
+function handleRegister(){
+  const data={
+    full_name:document.getElementById('reg-name').value.trim(),
+    username:document.getElementById('reg-username').value.trim(),
+    phone:document.getElementById('reg-phone').value.trim(),
+    email:document.getElementById('reg-email').value.trim(),
+    password:document.getElementById('reg-password').value,
+    education_level:document.getElementById('reg-education').value,
+    location:document.getElementById('reg-location').value.trim()
+  };
+  if(!data.full_name||!data.username||!data.phone||!data.password){showToast('Please fill in all required fields','error');return}
+  if(data.password.length<6){showToast('Password must be at least 6 characters','error');return}
+  const result=register(data);
+  if(result.success){showToast(result.message);navigate('student-dashboard')}
+  else showToast(result.message,'error');
+}
+
+// ==================== STUDENT DASHBOARD ====================
+function renderStudentDashboard(){
+  if(!currentUser){navigate('login');return ''}
+  const db=getDB();
+  const profile=getUserProfile(currentUser.id);
+  const enrollments=db.enrollments.filter(e=>e.student_id===currentUser.id);
+  const certs=db.certificates.filter(c=>c.student_id===currentUser.id);
+  const exams=db.exam_results.filter(r=>r.student_id===currentUser.id);
+  const notifs=db.notifications.filter(n=>n.user_id===currentUser.id&&!n.read_status);
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-8 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center gap-4">
+          <img src="${currentUser.profile_image}" class="w-14 h-14 rounded-full object-cover border-2 border-gold" alt="">
+          <div><h1 class="font-poppins font-bold text-xl">Welcome, ${currentUser.full_name}</h1><p class="text-gray-300 text-sm">Student ID: ${profile.student_id||'N/A'}</p></div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative cursor-pointer" onclick="markNotifsRead()"><i class="fas fa-bell text-xl"></i>${notifs.length?`<span class="absolute -top-2 -right-2 w-5 h-5 bg-red-500 rounded-full text-white text-xs flex items-center justify-center">${notifs.length}</span>`:''}</div>
+          <button class="btn-sm bg-white/10 text-white rounded-lg hover:bg-white/20 transition" onclick="logout()"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-8 max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      ${[
+        {icon:'fa-book-open',label:'Enrolled Courses',value:enrollments.length,color:'from-primary to-primary-light'},
+        {icon:'fa-certificate',label:'Certificates',value:certs.length,color:'from-gold-dark to-gold'},
+        {icon:'fa-file-alt',label:'Exams Taken',value:exams.length,color:'from-accent to-accent-light'},
+        {icon:'fa-bell',label:'Notifications',value:notifs.length,color:'from-primary-lighter to-primary'}
+      ].map(s=>`
+        <div class="bg-white rounded-xl p-5 shadow-md flex items-center gap-4">
+          <div class="w-12 h-12 bg-gradient-to-br ${s.color} rounded-xl flex items-center justify-center"><i class="fas ${s.icon} text-white"></i></div>
+          <div><div class="font-poppins font-bold text-2xl text-primary">${s.value}</div><div class="text-xs text-gray-500">${s.label}</div></div>
+        </div>`).join('')}
+    </div>
+    <h2 class="font-poppins font-bold text-xl text-primary mb-4">My Courses</h2>
+    ${enrollments.length?`
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        ${enrollments.map(e=>{
+          const c=db.courses.find(co=>co.id===e.course_id);
+          if(!c)return'';
+          return`
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <img src="${c.thumbnail}" class="w-full h-36 object-cover" alt="${c.title}">
+            <div class="p-5">
+              <h3 class="font-poppins font-semibold text-primary mb-2">${c.title}</h3>
+              <div class="mb-3">
+                <div class="flex justify-between text-xs text-gray-500 mb-1"><span>Progress</span><span>${e.progress_percentage}%</span></div>
+                <div class="w-full bg-gray-200 rounded-full h-2"><div class="h-2 rounded-full ${e.progress_percentage===100?'bg-accent':'bg-gold'}" style="width:${e.progress_percentage}%;animation:progressBar 1s ease"></div></div>
+              </div>
+              <button class="btn-primary btn-sm w-full justify-center" onclick="navigate('student-learning',{id:${c.id}})"><i class="fas fa-play"></i> ${e.progress_percentage===100?'Review':'Continue'}</button>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+    `:'<div class="bg-white rounded-xl p-12 text-center shadow-md mb-8"><i class="fas fa-book-open text-gray-300 text-5xl mb-4"></i><h3 class="font-poppins font-bold text-xl text-gray-400 mb-2">No Courses Yet</h3><p class="text-gray-400 mb-6">Start your learning journey by enrolling in a course</p><button class="btn-primary" onclick="navigate(\'courses\')">Browse Courses</button></div>'}
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <h2 class="font-poppins font-bold text-xl text-primary mb-4">My Certificates</h2>
+        ${certs.length?certs.map(c=>{const co=db.courses.find(cr=>cr.id===c.course_id);return`
+          <div class="bg-white rounded-xl p-4 shadow-md flex items-center gap-4 mb-3">
+            <div class="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center"><i class="fas fa-certificate text-gold text-xl"></i></div>
+            <div class="flex-1"><div class="font-semibold text-sm">${co?co.title:''}</div><div class="text-xs text-gray-400">${c.certificate_number} &bull; ${c.issue_date}</div></div>
+            <button class="btn-sm btn-outline" onclick="navigate('student-certificates')">View</button>
+          </div>`;}).join(''):'<div class="bg-white rounded-xl p-8 text-center shadow-md"><p class="text-gray-400 text-sm">No certificates yet. Complete a course and pass the exam to earn your certificate.</p></div>'}
+      </div>
+      <div>
+        <h2 class="font-poppins font-bold text-xl text-primary mb-4">Recent Notifications</h2>
+        <div class="space-y-3">
+          ${db.notifications.filter(n=>n.user_id===currentUser.id).slice(0,4).map(n=>`
+            <div class="bg-white rounded-xl p-4 shadow-md ${n.read_status?'':'border-l-4 border-gold'}">
+              <div class="font-semibold text-sm text-primary">${n.title}</div>
+              <p class="text-xs text-gray-500 mt-1">${n.message}</p>
+              <div class="text-xs text-gray-400 mt-2"><i class="far fa-clock mr-1"></i>${n.created_at}</div>
+            </div>`).join('')}
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-3 mt-8">
+      <button class="btn-outline btn-sm" onclick="navigate('student-certificates')"><i class="fas fa-certificate"></i> All Certificates</button>
+      <button class="btn-outline btn-sm" onclick="navigate('student-profile')"><i class="fas fa-user-cog"></i> Profile Settings</button>
+      <button class="btn-outline btn-sm" onclick="navigate('courses')"><i class="fas fa-plus"></i> Enroll in Course</button>
+    </div>
+  </section>`;
+}
+function markNotifsRead(){
+  const db=getDB();
+  db.notifications.filter(n=>n.user_id===currentUser.id).forEach(n=>n.read_status=true);
+  saveDB(db);showToast('Notifications marked as read');render();
+}
+
+// ==================== STUDENT LEARNING PAGE ====================
+function renderStudentLearning(){
+  if(!currentUser){navigate('login');return ''}
+  const db=getDB();
+  const courseId=pageParams.id;
+  const course=db.courses.find(c=>c.id===courseId);
+  if(!course)return'<div class="text-center py-20"><h2 class="text-gray-400">Course not found</h2></div>';
+  const enrollment=db.enrollments.find(e=>e.student_id===currentUser.id&&e.course_id===courseId);
+  if(!enrollment){showToast('Please enroll first','error');navigate('course-detail',{id:courseId});return ''}
+  const lessons=db.lessons.filter(l=>l.course_id===courseId).sort((a,b)=>a.order-b.order);
+  const progress=db.lesson_progress.filter(p=>p.student_id===currentUser.id&&lessons.some(l=>l.id===p.lesson_id));
+  const completedCount=progress.filter(p=>p.completed).length;
+  const currentLessonIdx=Math.min(completedCount,lessons.length-1);
+  const currentLesson=lessons[currentLessonIdx];
+  const isCompleted=enrollment.status==='completed';
+  const exam=db.exams.find(e=>e.course_id===courseId);
+  const examResult=db.exam_results.find(r=>r.student_id===currentUser.id&&r.exam_id===exam?.id);
+  return`
+  <section class="bg-primary text-white py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between flex-wrap gap-3">
+      <div class="flex items-center gap-3">
+        <button class="bg-white/10 p-2 rounded-lg" onclick="navigate('student-dashboard')"><i class="fas fa-arrow-left"></i></button>
+        <div><h2 class="font-poppins font-bold text-sm">${course.title}</h2><div class="text-xs text-gray-300">${completedCount}/${lessons.length} Lessons Completed</div></div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="w-32 bg-white/10 rounded-full h-2"><div class="h-2 rounded-full bg-gold" style="width:${enrollment.progress_percentage}%"></div></div>
+        <span class="text-sm font-medium">${enrollment.progress_percentage}%</span>
+        ${isCompleted&&exam&&!examResult?`<button class="btn-gold btn-sm" onclick="navigate('student-exam',{id:${courseId}})"><i class="fas fa-file-alt"></i> Take Exam</button>`:''}
+        ${examResult?`<span class="${examResult.result_status==='passed'?'text-accent-light':'text-red-400'} text-sm font-medium"><i class="fas ${examResult.result_status==='passed'?'fa-check-circle':'fa-times-circle'} mr-1"></i>Exam: ${examResult.score}%</span>`:''}
+      </div>
+    </div>
+  </section>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+    <div class="grid lg:grid-cols-4 gap-6">
+      <div class="lg:col-span-1">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden sticky top-24">
+          <div class="p-4 bg-gray-50 border-b font-poppins font-semibold text-sm text-primary">Course Content</div>
+          <div class="max-h-[60vh] overflow-y-auto">
+            ${lessons.map((l,i)=>{
+              const done=progress.find(p=>p.lesson_id===l.id&&p.completed);
+              const isCurrent=i===currentLessonIdx;
+              return`
+              <div class="lesson-item p-4 border-b cursor-pointer flex items-center gap-3 ${done?'completed':''} ${isCurrent?'bg-primary/5':''}" onclick="switchLesson(${l.id},${courseId})">
+                <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${done?'bg-accent text-white':'isCurrent'?'bg-primary text-white':'bg-gray-100 text-gray-400'}">
+                  ${done?'<i class="fas fa-check text-xs"></i>':`<span class="text-xs font-semibold">${i+1}</span>`}
+                </div>
+                <div class="flex-1 min-w-0"><div class="text-sm font-medium truncate ${isCurrent?'text-primary':'text-gray-700'}">${l.title}</div></div>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-3">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <div class="bg-gray-900 aspect-video flex items-center justify-center relative">
+            <div class="text-center text-white">
+              <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4"><i class="fas fa-play text-3xl text-gold ml-1"></i></div>
+              <p class="text-gray-300 text-sm">Video: ${currentLesson.title}</p>
+              <p class="text-gray-500 text-xs mt-1">Video player placeholder</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <h2 class="font-poppins font-bold text-xl text-primary mb-2">Lesson ${currentLesson.order}: ${currentLesson.title}</h2>
+            <p class="text-gray-600 leading-relaxed mb-6">${currentLesson.content}</p>
+            <div class="flex items-center justify-between pt-4 border-t">
+              <button class="btn-outline btn-sm ${currentLessonIdx===0?'opacity-50 pointer-events-none':''}" onclick="switchLesson(${currentLessonIdx>0?lessons[currentLessonIdx-1].id:0},${courseId})"><i class="fas fa-arrow-left"></i> Previous</button>
+              ${!progress.find(p=>p.lesson_id===currentLesson.id&&p.completed)?`
+                <button class="btn-primary btn-sm" onclick="completeLesson(${currentLesson.id},${courseId})"><i class="fas fa-check"></i> Mark Complete</button>
+              `:`
+                <span class="text-accent text-sm font-medium"><i class="fas fa-check-circle mr-1"></i>Completed</span>
+              `}
+              <button class="btn-primary btn-sm ${currentLessonIdx>=lessons.length-1?'opacity-50 pointer-events-none':''}" onclick="switchLesson(${currentLessonIdx<lessons.length-1?lessons[currentLessonIdx+1].id:0},${courseId})">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+function switchLesson(lessonId,courseId){navigate('student-learning',{id:courseId,lesson:lessonId})}
+function completeLesson(lessonId,courseId){
+  const db=getDB();
+  const existing=db.lesson_progress.find(p=>p.student_id===currentUser.id&&p.lesson_id===lessonId);
+  if(!existing){db.lesson_progress.push({id:db.lesson_progress.length+1,student_id:currentUser.id,lesson_id:lessonId,completed:true})}
+  else{existing.completed=true}
+  const lessons=db.lessons.filter(l=>l.course_id===courseId);
+  const allProgress=db.lesson_progress.filter(p=>p.student_id===currentUser.id&&lessons.some(l=>l.id===p.lesson_id));
+  const completedCount=allProgress.filter(p=>p.completed).length;
+  const pct=Math.round((completedCount/lessons.length)*100);
+  const enrollment=db.enrollments.find(e=>e.student_id===currentUser.id&&e.course_id===courseId);
+  if(enrollment){enrollment.progress_percentage=pct;if(pct===100)enrollment.status='completed'}
+  saveDB(db);showToast('Lesson completed!');navigate('student-learning',{id:courseId});
+}
+
+// ==================== STUDENT EXAM PAGE ====================
+let examState={answers:{},submitted:false,timer:null,timeLeft:0};
+function renderStudentExam(){
+  if(!currentUser){navigate('login');return ''}
+  const db=getDB();
+  const courseId=pageParams.id;
+  const course=db.courses.find(c=>c.id===courseId);
+  const exam=db.exams.find(e=>e.course_id===courseId);
+  if(!exam||!course)return'<div class="text-center py-20"><h2 class="text-gray-400">Exam not found</h2></div>';
+  const enrollment=db.enrollments.find(e=>e.student_id===currentUser.id&&e.course_id===courseId);
+  if(!enrollment||enrollment.progress_percentage<100){showToast('Complete all lessons first','error');navigate('student-learning',{id:courseId});return ''}
+  const existingResult=db.exam_results.find(r=>r.student_id===currentUser.id&&r.exam_id===exam.id);
+  if(existingResult){
+    return`
+    <section class="py-20 max-w-lg mx-auto px-4 text-center">
+      <div class="bg-white rounded-2xl shadow-xl p-10">
+        <div class="w-24 h-24 ${existingResult.result_status==='passed'?'bg-accent/10':'bg-red-50'} rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas ${existingResult.result_status==='passed'?'fa-check-circle text-accent':'fa-times-circle text-red-500'} text-5xl"></i>
+        </div>
+        <h2 class="font-poppins font-bold text-2xl ${existingResult.result_status==='passed'?'text-accent':'text-red-500'} mb-2">${existingResult.result_status==='passed'?'Congratulations!':'Try Again'}</h2>
+        <p class="text-gray-500 mb-4">Your score: <span class="font-bold text-primary text-xl">${existingResult.score}%</span></p>
+        <p class="text-gray-400 text-sm mb-6">${existingResult.result_status==='passed'?'You have earned your certificate!':'You need '+exam.passing_score+'% to pass.'}</p>
+        ${existingResult.result_status==='passed'?`<button class="btn-gold" onclick="navigate('student-certificates')"><i class="fas fa-certificate"></i> View Certificate</button>`:''}
+        <button class="btn-outline ml-3" onclick="navigate('student-dashboard')">Back to Dashboard</button>
+      </div>
+    </section>`;
+  }
+  const questions=db.questions.filter(q=>q.exam_id===exam.id).sort((a,b)=>a.id-b.id);
+  if(examState.submitted){
+    const score=calculateExamScore(questions);
+    const passed=score>=exam.passing_score;
+    return`
+    <section class="py-20 max-w-lg mx-auto px-4 text-center">
+      <div class="bg-white rounded-2xl shadow-xl p-10">
+        <div class="w-24 h-24 ${passed?'bg-accent/10':'bg-red-50'} rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas ${passed?'fa-check-circle text-accent':'fa-times-circle text-red-500'} text-5xl"></i>
+        </div>
+        <h2 class="font-poppins font-bold text-2xl ${passed?'text-accent':'text-red-500'} mb-2">${passed?'Congratulations!':'Keep Trying!'}</h2>
+        <p class="text-gray-500 mb-4">Your score: <span class="font-bold text-primary text-xl">${score}%</span></p>
+        <p class="text-gray-400 text-sm mb-6">${passed?'You passed! Your certificate has been generated.':'You need '+exam.passing_score+'% to pass. Review the lessons and try again.'}</p>
+        <button class="btn-primary" onclick="navigate('student-dashboard')">Back to Dashboard</button>
+      </div>
+    </section>`;
+  }
+  if(examState.timer){clearInterval(examState.timer)}
+  examState={answers:examState.answers||{},submitted:false,timer:null,timeLeft:exam.duration*60};
+  return`
+  <section class="bg-primary text-white py-4">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <button class="bg-white/10 p-2 rounded-lg" onclick="navigate('student-learning',{id:${courseId}})"><i class="fas fa-arrow-left"></i></button>
+        <div><h2 class="font-poppins font-bold text-sm">${exam.title}</h2><div class="text-xs text-gray-300">${questions.length} Questions &bull; ${exam.passing_score}% to pass</div></div>
+      </div>
+      <div class="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg"><i class="fas fa-clock text-gold"></i><span id="exam-timer" class="font-mono font-bold">${formatTime(examState.timeLeft)}</span></div>
+    </div>
+  </section>
+  <section class="py-8 max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="space-y-6">
+      ${questions.map((q,i)=>{
+        const selected=examState.answers[q.id]||null;
+        return`
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <div class="flex items-start gap-3 mb-4">
+            <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">${i+1}</span>
+            <h3 class="font-semibold text-primary pt-1">${q.question_text}</h3>
+          </div>
+          <div class="space-y-3 ml-11">
+            ${q.options.map((opt,oi)=>{
+              const letter=String.fromCharCode(65+oi);
+              return`
+              <div class="exam-option ${selected===letter?'selected':''}" onclick="selectAnswer(${q.id},'${letter}')">
+                <span class="w-8 h-8 rounded-full border-2 ${selected===letter?'border-primary bg-primary text-white':'border-gray-300 text-gray-500'} flex items-center justify-center text-sm font-bold flex-shrink-0">${letter}</span>
+                <span class="text-sm">${opt.text}</span>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+    <div class="mt-8 text-center">
+      <button class="btn-gold text-base" onclick="submitExam(${exam.id},${courseId})"><i class="fas fa-paper-plane"></i> Submit Exam</button>
+    </div>
+  </section>`;
+}
+function selectAnswer(questionId,letter){examState.answers[questionId]=letter;render();startExamTimer()}
+function startExamTimer(){
+  if(examState.timer)return;
+  examState.timer=setInterval(()=>{
+    examState.timeLeft--;
+    const el=document.getElementById('exam-timer');
+    if(el)el.textContent=formatTime(examState.timeLeft);
+    if(examState.timeLeft<=0){clearInterval(examState.timer);showToast('Time is up!','error');examState.submitted=true;render()}
+  },1000);
+}
+function formatTime(s){return Math.floor(s/60).toString().padStart(2,'0')+':'+(s%60).toString().padStart(2,'0')}
+function calculateExamScore(questions){
+  let correct=0;
+  questions.forEach(q=>{if(examState.answers[q.id]===q.options.find(o=>o.is_correct)?String.fromCharCode(65+q.options.findIndex(o=>o.is_correct)):null)correct++});
+  return Math.round((correct/questions.length)*100);
+}
+function submitExam(examId,courseId){
+  if(Object.keys(examState.answers).length===0){showToast('Please answer at least one question','error');return}
+  if(examState.timer)clearInterval(examState.timer);
+  const db=getDB();
+  const questions=db.questions.filter(q=>q.exam_id===examId);
+  const score=calculateExamScore(questions);
+  const passed=score>=db.exams.find(e=>e.id===examId).passing_score;
+  db.exam_results.push({id:db.exam_results.length+1,student_id:currentUser.id,exam_id:examId,score:score,result_status:passed?'passed':'failed',exam_date:new Date().toISOString().split('T')[0]});
+  if(passed){
+    const certNum='ADS-'+new Date().getFullYear()+'-'+String(db.certificates.length+1).padStart(5,'0');
+    db.certificates.push({id:db.certificates.length+1,student_id:currentUser.id,course_id:courseId,certificate_number:certNum,qr_code:'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+certNum,issue_date:new Date().toISOString().split('T')[0],status:'active'});
+    db.notifications.push({id:db.notifications.length+1,user_id:currentUser.id,title:'Certificate Earned!',message:'Congratulations! You earned a certificate for completing the course.',read_status:false,created_at:new Date().toISOString().split('T')[0]});
+  }
+  saveDB(db);examState.submitted=true;render();
+}
+
+// ==================== STUDENT CERTIFICATES PAGE ====================
+function renderStudentCertificates(){
+  if(!currentUser){navigate('login');return ''}
+  const db=getDB();
+  const certs=db.certificates.filter(c=>c.student_id===currentUser.id);
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-8 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-3">
+      <button class="bg-white/10 p-2 rounded-lg" onclick="navigate('student-dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h1 class="font-poppins font-bold text-xl">My Certificates</h1>
+    </div>
+  </section>
+  <section class="py-8 max-w-5xl mx-auto px-4 sm:px-6">
+    ${certs.length?certs.map(c=>{
+      const course=db.courses.find(co=>co.id===c.course_id);
+      return`
+      <div class="certificate-bg rounded-2xl p-8 md:p-12 mb-8">
+        <div class="text-center">
+          <div class="flex items-center justify-center gap-3 mb-6">
+            <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center"><i class="fas fa-graduation-cap text-gold text-xl"></i></div>
+            <div class="text-left"><div class="font-poppins font-bold text-primary text-sm">Africa Digital Skills & Professional Development Academy</div><div class="text-xs text-gray-500">Hawassa, Ethiopia</div></div>
+          </div>
+          <div class="text-gold font-poppins font-semibold text-sm mb-4">CERTIFICATE OF COMPLETION</div>
+          <p class="text-gray-500 text-sm mb-2">This is to certify that</p>
+          <h2 class="font-poppins font-bold text-3xl text-primary mb-2">${currentUser.full_name}</h2>
+          <p class="text-gray-500 text-sm mb-2">has successfully completed the course</p>
+          <h3 class="font-poppins font-bold text-xl text-gold-dark mb-4">${course?course.title:''}</h3>
+          <div class="flex items-center justify-center gap-8 text-sm text-gray-500 mb-6">
+            <span><i class="far fa-calendar mr-1"></i>${c.issue_date}</span>
+            <span><i class="fas fa-hashtag mr-1"></i>${c.certificate_number}</span>
+          </div>
+          <img src="${c.qr_code}" class="mx-auto mb-2" alt="QR Code" width="100" height="100">
+          <p class="text-xs text-gray-400">Scan to verify this certificate</p>
+        </div>
+      </div>`;
+    }).join(''):'<div class="bg-white rounded-xl p-12 text-center shadow-md"><i class="fas fa-certificate text-gray-300 text-5xl mb-4"></i><h3 class="font-poppins font-bold text-xl text-gray-400 mb-2">No Certificates Yet</h3><p class="text-gray-400">Complete a course and pass the exam to earn your certificate.</p></div>'}
+  </section>`;
+}
+
+// ==================== STUDENT PROFILE PAGE ====================
+function renderStudentProfile(){
+  if(!currentUser){navigate('login');return ''}
+  const db=getDB();
+  const profile=getUserProfile(currentUser.id);
+  return`
+  <section class="bg-gradient-to-r from-primary to-primary-light py-8 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-3">
+      <button class="bg-white/10 p-2 rounded-lg" onclick="navigate('student-dashboard')"><i class="fas fa-arrow-left"></i></button>
+      <h1 class="font-poppins font-bold text-xl">Profile Settings</h1>
+    </div>
+  </section>
+  <section class="py-8 max-w-2xl mx-auto px-4 sm:px-6">
+    <div class="bg-white rounded-2xl shadow-md p-8">
+      <div class="text-center mb-8">
+        <img src="${currentUser.profile_image}" class="w-24 h-24 rounded-full object-cover border-4 border-gold mx-auto mb-4" alt="">
+        <h2 class="font-poppins font-bold text-xl text-primary">${currentUser.full_name}</h2>
+        <p class="text-gray-500 text-sm">Student ID: ${profile.student_id||'N/A'}</p>
+      </div>
+      <div class="space-y-4">
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Full Name</label><input id="prof-name" class="input-field" value="${currentUser.full_name}"></div>
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Username</label><input id="prof-username" class="input-field" value="${currentUser.username}"></div>
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Phone</label><input id="prof-phone" class="input-field" value="${currentUser.phone}"></div>
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Email</label><input id="prof-email" class="input-field" value="${currentUser.email||''}"></div>
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Location</label><input id="prof-location" class="input-field" value="${profile.location||''}"></div>
+        <button class="btn-primary" onclick="updateProfile()"><i class="fas fa-save"></i> Save Changes</button>
+      </div>
+    </div>
+    <div class="mt-6 flex gap-3">
+      <button class="btn-outline btn-sm text-red-500 border-red-300 hover:bg-red-50" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+      <button class="btn-outline btn-sm text-red-500 border-red-300 hover:bg-red-50" onclick="if(confirm('Reset all demo data?'))resetDB()"><i class="fas fa-undo"></i> Reset Demo Data</button>
+    </div>
+  </section>`;
+}
+function updateProfile(){
+  const db=getDB();
+  const user=db.users.find(u=>u.id===currentUser.id);
+  if(user){
+    user.full_name=document.getElementById('prof-name').value.trim();
+    user.username=document.getElementById('prof-username').value.trim();
+    user.phone=document.getElementById('prof-phone').value.trim();
+    user.email=document.getElementById('prof-email').value.trim();
+    const sp=db.student_profiles.find(s=>s.user_id===currentUser.id);
+    if(sp)sp.location=document.getElementById('prof-location').value.trim();
+    saveDB(db);currentUser=user;localStorage.setItem('ads_current_user',JSON.stringify(user));
+    showToast('Profile updated successfully');
+  }
+}
+
+// ==================== INSTRUCTOR LAYOUT ====================
+function renderInstructorLayout(){
+  const db=getDB();
+  const courses=db.courses.filter(c=>c.instructor_id===currentUser.id);
+  const totalStudents=db.enrollments.filter(e=>courses.some(c=>c.id===e.course_id)).length;
+  const pages={dashboard:'instructor-dashboard',courses:'instructor-courses'};
+  const activePage=currentPage.startsWith('instructor')?currentPage:'instructor-dashboard';
+  let content='';
+  if(activePage==='instructor-courses')content=renderInstructorCourses(courses);
+  else content=renderInstructorDashboard(courses,totalStudents);
+  return`
+  <div class="flex min-h-screen">
+    <aside class="admin-sidebar w-64 bg-primary-dark text-white fixed h-full z-40 transition-transform">
+      <div class="p-6 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center"><i class="fas fa-graduation-cap text-primary"></i></div>
+          <div class="text-sm"><div class="font-poppins font-bold">ADS Academy</div><div class="text-gray-400 text-xs">Instructor Panel</div></div>
+        </div>
+      </div>
+      <div class="p-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <img src="${currentUser.profile_image}" class="w-10 h-10 rounded-full object-cover border-2 border-gold">
+          <div><div class="font-medium text-sm">${currentUser.full_name}</div><div class="text-gray-400 text-xs">Instructor</div></div>
+        </div>
+      </div>
+      <nav class="p-4 space-y-1">
+        <div class="sidebar-link ${activePage==='instructor-dashboard'?'active':''}" onclick="navigate('instructor-dashboard')"><i class="fas fa-th-large w-5"></i>Dashboard</div>
+        <div class="sidebar-link ${activePage==='instructor-courses'?'active':''}" onclick="navigate('instructor-courses')"><i class="fas fa-book-open w-5"></i>My Courses</div>
+        <div class="sidebar-link" onclick="navigate('home')"><i class="fas fa-globe w-5"></i>View Website</div>
+        <div class="sidebar-link" onclick="logout()"><i class="fas fa-sign-out-alt w-5"></i>Logout</div>
+      </nav>
+    </aside>
+    <div class="flex-1 ml-64">
+      <header class="bg-white shadow-sm px-6 py-4 flex items-center justify-between sticky top-0 z-30">
+        <button class="md:hidden text-primary text-xl" onclick="document.querySelector('.admin-sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+        <h2 class="font-poppins font-semibold text-primary">${activePage==='instructor-courses'?'My Courses':'Dashboard'}</h2>
+        <div class="flex items-center gap-3"><span class="text-sm text-gray-500">${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</span></div>
+      </header>
+      <main class="p-6 page-transition">${content}</main>
+    </div>
+  </div>`;
+}
+function renderInstructorDashboard(courses,totalStudents){
+  return`
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+    ${[
+      {icon:'fa-book-open',label:'My Courses',value:courses.length,color:'bg-primary'},
+      {icon:'fa-users',label:'Total Students',value:totalStudents,color:'bg-gold-dark'},
+      {icon:'fa-certificate',label:'Certificates',value:'0',color:'bg-accent'}
+    ].map(s=>`
+      <div class="admin-stat ${s.color}">
+        <div class="flex items-center gap-3 relative z-10"><i class="fas ${s.icon} text-2xl opacity-80"></i><div><div class="font-poppins font-bold text-3xl">${s.value}</div><div class="text-sm opacity-80">${s.label}</div></div></div>
+      </div>`).join('')}
+  </div>
+  <div class="bg-white rounded-xl shadow-md p-6">
+    <h3 class="font-poppins font-bold text-lg text-primary mb-4">My Courses</h3>
+    <div class="overflow-x-auto"><table class="w-full text-sm">
+      <thead><tr class="bg-gray-50"><th class="text-left p-3 font-semibold">Course</th><th class="text-left p-3 font-semibold">Level</th><th class="text-left p-3 font-semibold">Students</th><th class="text-left p-3 font-semibold">Status</th></tr></thead>
+      <tbody>${courses.map(c=>{
+        const sCount=getDB().enrollments.filter(e=>e.course_id===c.id).length;
+        return`<tr class="border-t"><td class="p-3 font-medium">${c.title}</td><td class="p-3">${c.level}</td><td class="p-3">${sCount}</td><td class="p-3"><span class="text-xs px-2 py-1 rounded-full ${c.status==='published'?'bg-accent/10 text-accent':'bg-gray-100 text-gray-500'}">${c.status}</span></td></tr>`;
+      }).join('')}</tbody>
+    </table></div>
+  </div>`;
+}
+function renderInstructorCourses(courses){
+  return`
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    ${courses.map(c=>`
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <img src="${c.thumbnail}" class="w-full h-40 object-cover" alt="${c.title}">
+        <div class="p-5">
+          <h3 class="font-poppins font-semibold text-primary mb-2">${c.title}</h3>
+          <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            <span>${c.level}</span><span>&bull;</span><span>${c.duration}</span><span>&bull;</span><span>${c.is_free?'Free':c.price+' ETB'}</span>
+          </div>
+          <div class="text-xs text-gray-400"><i class="fas fa-users mr-1"></i>${getDB().enrollments.filter(e=>e.course_id===c.id).length} students enrolled</div>
+        </div>
+      </div>`).join('')}
+  </div>`;
+}
+
+// ==================== ADMIN LAYOUT ====================
+function renderAdminLayout(){
+  const db=getDB();
+  const totalStudents=db.users.filter(u=>u.role==='student').length;
+  const totalCourses=db.courses.length;
+  const totalCerts=db.certificates.length;
+  const totalRevenue=db.payments.filter(p=>p.status==='completed').reduce((s,p)=>s+p.amount,0);
+  const pages=[
+    {id:'admin-dashboard',icon:'fa-th-large',label:'Dashboard'},
+    {id:'admin-users',icon:'fa-users',label:'Users'},
+    {id:'admin-courses',icon:'fa-book-open',label:'Courses'},
+    {id:'admin-certificates',icon:'fa-certificate',label:'Certificates'},
+    {id:'admin-payments',icon:'fa-credit-card',label:'Payments'},
+    {id:'admin-content',icon:'fa-file-alt',label:'Content'},
+    {id:'admin-settings',icon:'fa-cog',label:'Settings'}
+  ];
+  const activePage=currentPage.startsWith('admin')?currentPage:'admin-dashboard';
+  let content='';
+  switch(activePage){
+    case'admin-users':content=renderAdminUsers();break;
+    case'admin-courses':content=renderAdminCourses();break;
+    case'admin-certificates':content=renderAdminCertificates();break;
+    case'admin-payments':content=renderAdminPayments();break;
+    case'admin-content':content=renderAdminContent();break;
+    case'admin-settings':content=renderAdminSettings();break;
+    default:content=renderAdminDashboard(totalStudents,totalCourses,totalCerts,totalRevenue);
+  }
+  return`
+  <div class="flex min-h-screen">
+    <aside class="admin-sidebar w-64 bg-primary-dark text-white fixed h-full z-40 transition-transform">
+      <div class="p-6 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center"><i class="fas fa-graduation-cap text-primary"></i></div>
+          <div class="text-sm"><div class="font-poppins font-bold">ADS Academy</div><div class="text-gray-400 text-xs">Admin Panel</div></div>
+        </div>
+      </div>
+      <div class="p-4 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <img src="${currentUser.profile_image}" class="w-10 h-10 rounded-full object-cover border-2 border-gold">
+          <div><div class="font-medium text-sm">${currentUser.full_name}</div><div class="text-gold text-xs">${currentUser.role==='superadmin'?'Super Admin':'Admin'}</div></div>
+        </div>
+      </div>
+      <nav class="p-4 space-y-1">
+        ${pages.map(p=>`<div class="sidebar-link ${activePage===p.id?'active':''}" onclick="navigate('${p.id}')"><i class="fas ${p.icon} w-5"></i>${p.label}</div>`).join('')}
+        <div class="sidebar-link" onclick="navigate('home')"><i class="fas fa-globe w-5"></i>View Website</div>
+        <div class="sidebar-link" onclick="logout()"><i class="fas fa-sign-out-alt w-5"></i>Logout</div>
+      </nav>
+    </aside>
+    <div class="flex-1 ml-64">
+      <header class="bg-white shadow-sm px-6 py-4 flex items-center justify-between sticky top-0 z-30">
+        <button class="md:hidden text-primary text-xl" onclick="document.querySelector('.admin-sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+        <h2 class="font-poppins font-semibold text-primary">${pages.find(p=>p.id===activePage)?.label||'Dashboard'}</h2>
+        <div class="flex items-center gap-3"><span class="text-sm text-gray-500 hidden sm:inline">${new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</span></div>
+      </header>
+      <main class="p-6 page-transition">${content}</main>
+    </div>
+  </div>`;
+}
+
+// ==================== ADMIN DASHBOARD ====================
+function renderAdminDashboard(students,courses,certs,revenue){
+  const db=getDB();
+  const recentEnrollments=db.enrollments.slice(-5).reverse().map(e=>{
+    const s=db.users.find(u=>u.id===e.student_id);
+    const c=db.courses.find(co=>co.id===e.course_id);
+    return{...e,student_name:s?s.full_name:'Unknown',course_name:c?c.title:'Unknown'};
+  });
+  return`
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    ${[
+      {icon:'fa-users',label:'Total Students',value:students,color:'bg-primary',chart:'students-chart'},
+      {icon:'fa-book-open',label:'Total Courses',value:courses,color:'bg-gold-dark',chart:'courses-chart'},
+      {icon:'fa-certificate',label:'Certificates',value:certs,color:'bg-accent',chart:'certs-chart'},
+      {icon:'fa-money-bill-wave',label:'Revenue (ETB)',value:revenue.toLocaleString(),color:'bg-primary-lighter',chart:'revenue-chart'}
+    ].map(s=>`
+      <div class="admin-stat ${s.color}">
+        <div class="flex items-center justify-between relative z-10">
+          <div><div class="font-poppins font-bold text-2xl">${s.value}</div><div class="text-sm opacity-80">${s.label}</div></div>
+          <i class="fas ${s.icon} text-3xl opacity-30"></i>
+        </div>
+        <div class="mt-3 h-8 relative z-10" id="${s.chart}"></div>
+      </div>`).join('')}
+  </div>
+  <div class="grid lg:grid-cols-2 gap-6 mb-8">
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="font-poppins font-bold text-lg text-primary mb-4">Enrollments by Course</h3>
+      <div class="space-y-3">
+        ${db.courses.filter(c=>c.status==='published').map(c=>{
+          const count=db.enrollments.filter(e=>e.course_id===c.id).length;
+          const max=Math.max(...db.courses.map(co=>db.enrollments.filter(e=>e.course_id===co.id).length),1);
+          return`
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span class="text-gray-600">${c.title}</span><span class="font-semibold text-primary">${count}</span></div>
+            <div class="w-full bg-gray-100 rounded-full h-2"><div class="h-2 rounded-full bg-gold" style="width:${(count/max)*100}%"></div></div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="font-poppins font-bold text-lg text-primary mb-4">Recent Enrollments</h3>
+      <div class="space-y-3">
+        ${recentEnrollments.map(e=>`
+          <div class="flex items-center justify-between py-2 border-b border-gray-50">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center"><i class="fas fa-user text-primary text-xs"></i></div>
+              <div><div class="text-sm font-medium">${e.student_name}</div><div class="text-xs text-gray-400">${e.course_name}</div></div>
+            </div>
+            <span class="text-xs text-gray-400">${e.enrollment_date}</span>
+          </div>`).join('')}
+        ${recentEnrollments.length===0?'<p class="text-gray-400 text-sm text-center py-4">No enrollments yet</p>':''}
+      </div>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-md p-6">
+    <h3 class="font-poppins font-bold text-lg text-primary mb-4">Platform Overview</h3>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="text-center p-4 bg-gray-50 rounded-xl">
+        <div class="text-3xl font-poppins font-bold text-primary">${db.users.filter(u=>u.role==='instructor').length}</div>
+        <div class="text-sm text-gray-500">Active Instructors</div>
+      </div>
+      <div class="text-center p-4 bg-gray-50 rounded-xl">
+        <div class="text-3xl font-poppins font-bold text-primary">${db.exam_results.length}</div>
+        <div class="text-sm text-gray-500">Exams Taken</div>
+      </div>
+      <div class="text-center p-4 bg-gray-50 rounded-xl">
+        <div class="text-3xl font-poppins font-bold text-primary">${db.blog_posts.length}</div>
+        <div class="text-sm text-gray-500">Blog Posts</div>
+      </div>
+    </div>
+  </div>`;
+}
+function initAdminCharts(){
+  ['students-chart','courses-chart','certs-chart','revenue-chart'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const vals=Array.from({length:7},()=>Math.random()*80+20);
+    const maxH=28;
+    el.innerHTML=`<div class="flex items-end gap-1 h-full">${vals.map(v=>`<div class="flex-1 bg-white/30 rounded-sm" style="height:${(v/100)*maxH}px"></div>`).join('')}</div>`;
+  });
+}
+
+// ==================== ADMIN USERS ====================
+function renderAdminUsers(){
+  const db=getDB();
+  const users=db.users;
+  return`
+  <div class="bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="p-6 border-b flex flex-wrap items-center justify-between gap-4">
+      <div><h3 class="font-poppins font-bold text-lg text-primary">All Users (${users.length})</h3></div>
+      <input class="input-field max-w-xs" placeholder="Search users..." oninput="filterAdminUsers(this.value)">
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm" id="admin-users-table">
+        <thead><tr class="bg-gray-50">
+          <th class="text-left p-4 font-semibold">User</th>
+          <th class="text-left p-4 font-semibold">Role</th>
+          <th class="text-left p-4 font-semibold">Phone</th>
+          <th class="text-left p-4 font-semibold">Status</th>
+          <th class="text-left p-4 font-semibold">Joined</th>
+          <th class="text-left p-4 font-semibold">Actions</th>
+        </tr></thead>
+        <tbody>${users.map(u=>`
+          <tr class="border-t hover:bg-gray-50 user-row" data-name="${u.full_name.toLowerCase()}" data-role="${u.role}">
+            <td class="p-4"><div class="flex items-center gap-3"><img src="${u.profile_image}" class="w-9 h-9 rounded-full object-cover"><div><div class="font-medium">${u.full_name}</div><div class="text-xs text-gray-400">@${u.username}</div></div></div></td>
+            <td class="p-4"><span class="text-xs px-2 py-1 rounded-full font-medium ${u.role==='student'?'bg-blue-50 text-blue-600':u.role==='instructor'?'bg-purple-50 text-purple-600':u.role==='admin'?'bg-orange-50 text-orange-600':'bg-red-50 text-red-600'}">${u.role}</span></td>
+            <td class="p-4 text-gray-500">${u.phone}</td>
+            <td class="p-4"><span class="text-xs px-2 py-1 rounded-full ${u.status?'bg-accent/10 text-accent':'bg-red-50 text-red-500'}">${u.status?'Active':'Suspended'}</span></td>
+            <td class="p-4 text-gray-400 text-xs">${u.created_at}</td>
+            <td class="p-4">
+              <button class="text-primary hover:text-gold text-sm mr-2" title="Toggle Status" onclick="toggleUserStatus(${u.id})"><i class="fas fa-toggle-${u.status?'on':'off'}"></i></button>
+            </td>
+          </tr>`).join('')}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+function filterAdminUsers(q){
+  q=q.toLowerCase();
+  document.querySelectorAll('.user-row').forEach(r=>{
+    r.style.display=(r.dataset.name.includes(q)||r.dataset.role.includes(q))?'':'none';
+  });
+}
+function toggleUserStatus(userId){
+  const db=getDB();
+  const user=db.users.find(u=>u.id===userId);
+  if(user){user.status=!user.status;saveDB(db);showToast(`User ${user.status?'activated':'suspended'}`);render()}
+}
+
+// ==================== ADMIN COURSES ====================
+function renderAdminCourses(){
+  const db=getDB();
+  const courses=db.courses;
+  return`
+  <div class="bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="p-6 border-b flex flex-wrap items-center justify-between gap-4">
+      <h3 class="font-poppins font-bold text-lg text-primary">All Courses (${courses.length})</h3>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="bg-gray-50">
+          <th class="text-left p-4 font-semibold">Course</th>
+          <th class="text-left p-4 font-semibold">Instructor</th>
+          <th class="text-left p-4 font-semibold">Level</th>
+          <th class="text-left p-4 font-semibold">Price</th>
+          <th class="text-left p-4 font-semibold">Students</th>
+          <th class="text-left p-4 font-semibold">Status</th>
+          <th class="text-left p-4 font-semibold">Actions</th>
+        </tr></thead>
+        <tbody>${courses.map(c=>{
+          const inst=db.users.find(u=>u.id===c.instructor_id);
+          const sCount=db.enrollments.filter(e=>e.course_id===c.id).length;
+          return`
+          <tr class="border-t hover:bg-gray-50">
+            <td class="p-4"><div class="flex items-center gap-3"><img src="${c.thumbnail}" class="w-12 h-8 rounded object-cover"><div class="font-medium">${c.title}</div></div></td>
+            <td class="p-4 text-gray-500">${inst?inst.full_name:'N/A'}</td>
+            <td class="p-4 text-gray-500">${c.level}</td>
+            <td class="p-4 font-medium">${c.is_free?'<span class="text-accent">Free</span>':c.price+' ETB'}</td>
+            <td class="p-4 text-gray-500">${sCount}</td>
+            <td class="p-4"><span class="text-xs px-2 py-1 rounded-full ${c.status==='published'?'bg-accent/10 text-accent':'bg-gray-100 text-gray-500'}">${c.status}</span></td>
+            <td class="p-4">
+              <button class="text-primary hover:text-gold text-sm mr-2" title="Toggle Publish" onclick="toggleCourseStatus(${c.id})"><i class="fas fa-${c.status==='published'?'eye-slash':'eye'}"></i></button>
+            </td>
+          </tr>`;
+        }).join('')}</tbody>
+      </table>
+    </div>
+  </div>`;
+}
+function toggleCourseStatus(courseId){
+  const db=getDB();
+  const course=db.courses.find(c=>c.id===courseId);
+  if(course){course.status=course.status==='published'?'draft':'published';saveDB(db);showToast(`Course ${course.status==='published'?'published':'unpublished'}`);render()}
+}
+
+// ==================== ADMIN CERTIFICATES ====================
+function renderAdminCertificates(){
+  const db=getDB();
+  const certs=db.certificates.map(c=>{
+    const student=db.users.find(u=>u.id===c.student_id);
+    const course=db.courses.find(co=>co.id===c.course_id);
+    return{...c,student_name:student?student.full_name:'Unknown',course_name:course?course.title:'Unknown'};
+  });
+  return`
+  <div class="bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="p-6 border-b"><h3 class="font-poppins font-bold text-lg text-primary">Issued Certificates (${certs.length})</h3></div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="bg-gray-50">
+          <th class="text-left p-4 font-semibold">Certificate No.</th>
+          <th class="text-left p-4 font-semibold">Student</th>
+          <th class="text-left p-4 font-semibold">Course</th>
+          <th class="text-left p-4 font-semibold">Issue Date</th>
+          <th class="text-left p-4 font-semibold">Status</th>
+        </tr></thead>
+        <tbody>${certs.map(c=>`
+          <tr class="border-t hover:bg-gray-50">
+            <td class="p-4 font-mono text-sm text-primary">${c.certificate_number}</td>
+            <td class="p-4 font-medium">${c.student_name}</td>
+            <td class="p-4 text-gray-500">${c.course_name}</td>
+            <td class="p-4 text-gray-400">${c.issue_date}</td>
+            <td class="p-4"><span class="text-xs px-2 py-1 rounded-full bg-accent/10 text-accent">${c.status}</span></td>
+          </tr>`).join('')}
+        ${certs.length===0?'<tr><td colspan="5" class="p-8 text-center text-gray-400">No certificates issued yet</td></tr>':''}
+        </tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+// ==================== ADMIN PAYMENTS ====================
+function renderAdminPayments(){
+  const db=getDB();
+  const payments=db.payments.map(p=>{
+    const student=db.users.find(u=>u.id===p.student_id);
+    const course=db.courses.find(c=>c.id===p.course_id);
+    return{...p,student_name:student?student.full_name:'Unknown',course_name:course?course.title:'Unknown'};
+  });
+  const totalRev=payments.filter(p=>p.status==='completed').reduce((s,p)=>s+p.amount,0);
+  return`
+  <div class="grid sm:grid-cols-3 gap-6 mb-6">
+    <div class="bg-white rounded-xl shadow-md p-6"><div class="text-sm text-gray-500">Total Revenue</div><div class="font-poppins font-bold text-2xl text-primary mt-1">${totalRev.toLocaleString()} ETB</div></div>
+    <div class="bg-white rounded-xl shadow-md p-6"><div class="text-sm text-gray-500">Completed Payments</div><div class="font-poppins font-bold text-2xl text-accent mt-1">${payments.filter(p=>p.status==='completed').length}</div></div>
+    <div class="bg-white rounded-xl shadow-md p-6"><div class="text-sm text-gray-500">Pending Payments</div><div class="font-poppins font-bold text-2xl text-gold-dark mt-1">${payments.filter(p=>p.status!=='completed').length}</div></div>
+  </div>
+  <div class="bg-white rounded-xl shadow-md overflow-hidden">
+    <div class="p-6 border-b"><h3 class="font-poppins font-bold text-lg text-primary">Payment History</h3></div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead><tr class="bg-gray-50">
+          <th class="text-left p-4 font-semibold">Student</th>
+          <th class="text-left p-4 font-semibold">Course</th>
+          <th class="text-left p-4 font-semibold">Amount</th>
+          <th class="text-left p-4 font-semibold">Method</th>
+          <th class="text-left p-4 font-semibold">Transaction ID</th>
+          <th class="text-left p-4 font-semibold">Date</th>
+          <th class="text-left p-4 font-semibold">Status</th>
+        </tr></thead>
+        <tbody>${payments.map(p=>`
+          <tr class="border-t hover:bg-gray-50">
+            <td class="p-4 font-medium">${p.student_name}</td>
+            <td class="p-4 text-gray-500">${p.course_name}</td>
+            <td class="p-4 font-semibold text-primary">${p.amount} ETB</td>
+            <td class="p-4 text-gray-500">${p.payment_method}</td>
+            <td class="p-4 font-mono text-xs text-gray-400">${p.transaction_id}</td>
+            <td class="p-4 text-gray-400">${p.payment_date}</td>
+            <td class="p-4"><span class="text-xs px-2 py-1 rounded-full ${p.status==='completed'?'bg-accent/10 text-accent':'bg-yellow-50 text-yellow-600'}">${p.status}</span></td>
+          </tr>`).join('')}
+        ${payments.length===0?'<tr><td colspan="7" class="p-8 text-center text-gray-400">No payments recorded yet. Payment integration coming soon.</td></tr>':''}
+        </tbody>
+      </table>
+    </div>
+  </div>`;
+}
+
+// ==================== ADMIN CONTENT ====================
+function renderAdminContent(){
+  const db=getDB();
+  return`
+  <div class="grid lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="font-poppins font-bold text-lg text-primary mb-4">Blog Posts (${db.blog_posts.length})</h3>
+      <div class="space-y-3">
+        ${db.blog_posts.map(p=>`
+          <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
+            <img src="${p.image}" class="w-16 h-12 rounded object-cover">
+            <div class="flex-1 min-w-0"><div class="font-medium text-sm truncate">${p.title}</div><div class="text-xs text-gray-400">${p.created_at}</div></div>
+            <span class="text-xs px-2 py-1 rounded-full ${p.status==='published'?'bg-accent/10 text-accent':'bg-gray-200 text-gray-500'}">${p.status}</span>
+          </div>`).join('')}
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="font-poppins font-bold text-lg text-primary mb-4">Events (${db.events.length})</h3>
+      <div class="space-y-3">
+        ${db.events.map(e=>`
+          <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
+            <img src="${e.image}" class="w-16 h-12 rounded object-cover">
+            <div class="flex-1 min-w-0"><div class="font-medium text-sm truncate">${e.title}</div><div class="text-xs text-gray-400"><i class="far fa-calendar mr-1"></i>${e.event_date}</div></div>
+          </div>`).join('')}
+      </div>
+    </div>
+  </div>
+  <div class="mt-6 bg-white rounded-xl shadow-md p-6">
+    <h3 class="font-poppins font-bold text-lg text-primary mb-4">Course Categories (${db.categories.length})</h3>
+    <div class="grid sm:grid-cols-3 gap-4">
+      ${db.categories.map(c=>`
+        <div class="bg-gray-50 rounded-xl p-4 flex items-center gap-4">
+          <img src="${c.image}" class="w-16 h-12 rounded-lg object-cover">
+          <div><div class="font-semibold text-sm">${c.name}</div><div class="text-xs text-gray-400">${db.courses.filter(co=>co.category_id===c.id).length} courses</div></div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+// ==================== ADMIN SETTINGS ====================
+function renderAdminSettings(){
+  return`
+  <div class="max-w-3xl space-y-6">
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="font-poppins font-bold text-lg text-primary mb-4">General Settings</h3>
+      <div class="space-y-4">
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Academy Name</label><input class="input-field" value="Africa Digital Skills & Professional Development Academy"></div>
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Location</label><input class="input-field" value="Hawassa, Ethiopia"></div>
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Contact Email</label><input class="input-field" value="info@africadigitalskills.com"></div>
+        <div><label class="text-sm font-medium text-gray-700 block mb-1">Contact Phone</label><input class="input-field" value="+251 91 122 3344"></div>
+        <button class="btn-primary" onclick="showToast('Settings saved (demo)')"><i class="fas fa-save"></i> Save Settings</button>
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="font-poppins font-bold text-lg text-primary mb-4">System Actions</h3>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div><div class="font-medium text-sm">Reset Demo Data</div><div class="text-xs text-gray-400">Restore all data to default state</div></div>
+          <button class="btn-sm bg-red-500 text-white rounded-lg hover:bg-red-600 transition" onclick="if(confirm('Reset all data to default?'))resetDB()"><i class="fas fa-undo"></i> Reset</button>
+        </div>
+        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div><div class="font-medium text-sm">Clear Student Progress</div><div class="text-xs text-gray-400">Remove all lesson progress and exam results</div></div>
+          <button class="btn-sm bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition" onclick="clearStudentProgress()"><i class="fas fa-eraser"></i> Clear</button>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-md p-6">
+      <h3 class="font-poppins font-bold text-lg text-primary mb-4">System Information</h3>
+      <div class="grid sm:grid-cols-2 gap-4 text-sm">
+        <div class="flex justify-between p-3 bg-gray-50 rounded-lg"><span class="text-gray-500">Platform Version</span><span class="font-medium">1.0.0 (MVP)</span></div>
+        <div class="flex justify-between p-3 bg-gray-50 rounded-lg"><span class="text-gray-500">Storage</span><span class="font-medium">LocalStorage</span></div>
+        <div class="flex justify-between p-3 bg-gray-50 rounded-lg"><span class="text-gray-500">Database</span><span class="font-medium">In-Memory JSON</span></div>
+        <div class="flex justify-between p-3 bg-gray-50 rounded-lg"><span class="text-gray-500">Authentication</span><span class="font-medium">Demo Mode</span></div>
+      </div>
+    </div>
+  </div>`;
+}
+function clearStudentProgress(){
+  const db=getDB();
+  db.lesson_progress=[];
+  db.exam_results=db.exam_results.filter(r=>r.student_id!==1);
+  db.enrollments.forEach(e=>{if(e.student_id===1){e.progress_percentage=0;e.status='in_progress'}});
+  db.certificates=db.certificates.filter(c=>c.student_id!==1);
+  saveDB(db);showToast('Student progress cleared');render();
+}
+
+// ==================== SCROLL ANIMATIONS ====================
+function initScrollAnimations(){
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('opacity-100','translate-y-0');entry.target.classList.remove('opacity-0','translate-y-6')}});
+  },{threshold:0.1});
+  document.querySelectorAll('[data-animate]').forEach(el=>observer.observe(el));
+}
+
+// ==================== INIT ====================
+initAuth();
+render();
+</script>
+</body>
+</html>
