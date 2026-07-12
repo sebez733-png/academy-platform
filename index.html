@@ -79,6 +79,24 @@ h1,h2,h3,h4,h5,h6{font-family:'Poppins',sans-serif}
 <div id="toast-container"></div>
 
 <script>
+// ==================== SITE CONFIG ====================
+// *** CHANGE THESE VALUES TO YOUR REAL INFO ***
+// They appear everywhere: footer, contact page, certificates, about page, admin settings
+const SITE_CONFIG = {
+  academy_name: 'Adot Digital Skills & Professional Development Academy',
+  academy_short: 'Africa Digital Skills',
+  location: 'Hawassa, Ethiopia',
+  phone: '+251 98245 4524',        // <-- YOUR REAL PHONE
+  email: 'info@adotttt.com', // <-- YOUR REAL EMAIL
+  working_hours: 'Mon - Sat: 8:00 AM - 6:00 PM',
+  social: {
+    facebook: '#',
+    telegram: '#',
+    youtube: '#',
+    linkedin: '#'
+  }
+};
+
 // ==================== DATABASE ====================
 const DEFAULT_DB = {
   users: [
@@ -407,9 +425,9 @@ function renderPublicFooter(){
         <div>
           <h4 class="font-poppins font-semibold mb-4 text-gold">Contact Us</h4>
           <div class="space-y-3 text-sm text-gray-300">
-            <div class="flex items-start gap-2"><i class="fas fa-map-marker-alt mt-1 text-gold"></i><span>Hawassa, Ethiopia</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-phone text-gold"></i><span>+251982454524 call For HABTE</span></div>
-            <div class="flex items-center gap-2"><i class="fas fa-envelope text-gold"></i><span>info@africadigitalskills.com</span></div>
+            <div class="flex items-start gap-2"><i class="fas fa-map-marker-alt mt-1 text-gold"></i><span>${SITE_CONFIG.location}</span></div>
+            <div class="flex items-center gap-2"><i class="fas fa-phone text-gold"></i><span>${SITE_CONFIG.phone}</span></div>
+            <div class="flex items-center gap-2"><i class="fas fa-envelope text-gold"></i><span>${SITE_CONFIG.email}</span></div>
           </div>
           <div class="flex gap-3 mt-4">
             <a class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition cursor-pointer"><i class="fab fa-facebook-f text-sm"></i></a>
@@ -708,7 +726,7 @@ function renderAbout(){
       <div><img src="https://picsum.photos/seed/about-main/600/450" class="rounded-2xl shadow-xl w-full" alt="About"></div>
       <div>
         <h2 class="font-poppins text-3xl font-bold text-primary mb-6">Our Story</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">Africa Digital Skills & Professional Development Academy was founded in Hawassa, Ethiopia with a simple but powerful mission: to make quality digital education accessible to every Ethiopian.</p>
+        <p class="text-gray-600 leading-relaxed mb-4"> ${SITE_CONFIG.academy_name} was founded in ${SITE_CONFIG.location} with a simple but powerful mission: to make quality digital education accessible to every Ethiopian.</p>
         <p class="text-gray-600 leading-relaxed mb-4">What started as a small computer training center has grown into a respected institution that has trained over 1,000 students in essential digital and professional skills.</p>
         <p class="text-gray-600 leading-relaxed mb-6">Our experienced instructors bring real-world knowledge to the classroom, ensuring that every student gains practical skills they can immediately apply in their careers.</p>
         <div class="grid grid-cols-2 gap-4">
@@ -991,12 +1009,12 @@ function renderContact(){
   <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6">
     <div class="grid lg:grid-cols-3 gap-8">
       <div class="space-y-6">
-        ${[
-          {icon:'fa-map-marker-alt',title:'Our Location',info:'Hawassa, Ethiopia'},
-          {icon:'fa-phone',title:'Phone',info:'+251 98245 4524 call For HABTE'},
-          {icon:'fa-envelope',title:'Email',info:'info@africadigitalskills.com'},
-          {icon:'fa-clock',title:'Working Hours',info:'Mon - Sat: 8:00 AM - 6:00 PM'}
-        ].map(c=>`
+         ${[
+          {icon:'fa-map-marker-alt',title:'Our Location',info:SITE_CONFIG.location},
+          {icon:'fa-phone',title:'Phone',info:SITE_CONFIG.phone},
+          {icon:'fa-envelope',title:'Email',info:SITE_CONFIG.email},
+          {icon:'fa-clock',title:'Working Hours',info:SITE_CONFIG.working_hours}
+        ].map(c=>
           <div class="bg-white rounded-xl p-6 shadow-md flex items-start gap-4">
             <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fas ${c.icon} text-primary"></i></div>
             <div><h3 class="font-poppins font-semibold text-primary">${c.title}</h3><p class="text-gray-500 text-sm mt-1">${c.info}</p></div>
@@ -1429,7 +1447,7 @@ function renderStudentCertificates(){
         <div class="text-center">
           <div class="flex items-center justify-center gap-3 mb-6">
             <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center"><i class="fas fa-graduation-cap text-gold text-xl"></i></div>
-            <div class="text-left"><div class="font-poppins font-bold text-primary text-sm">Africa Digital Skills & Professional Development Academy</div><div class="text-xs text-gray-500">Hawassa, Ethiopia</div></div>
+            <div class="text-left"><div class="font-poppins font-bold text-primary text-sm">${SITE_CONFIG.academy_name}</div><div class="text-xs text-gray-500">${SITE_CONFIG.location}</div></div>
           </div>
           <div class="text-gold font-poppins font-semibold text-sm mb-4">CERTIFICATE OF COMPLETION</div>
           <p class="text-gray-500 text-sm mb-2">This is to certify that</p>
