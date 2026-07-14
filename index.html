@@ -263,7 +263,19 @@ function register(data){
   saveDB(db);currentUser=user;localStorage.setItem('ads_current_user',JSON.stringify(user));
   return{success:true,message:'Registration successful'};
 }
-function logout(){currentUser=null;localStorage.removeItem('ads_current_user');navigate('home')}
+function logout(){
+  currentUser=null;
+  localStorage.removeItem('ads_current_user');
+  currentPage='home';
+  pageParams={};
+  window.scrollTo({top:0,behavior:'smooth'});
+  const app=document.getElementById('app');
+  const header=renderPublicHeader();
+  const content=renderHome();
+  const footer=renderPublicFooter();
+  app.innerHTML=header+'<main class="page-transition">'+content+'</main>'+footer;
+  initScrollAnimations();
+}
 function getUserProfile(userId){
   const db=getDB();
   const user=db.users.find(u=>u.id===userId);
